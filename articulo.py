@@ -21,4 +21,19 @@
 #
 ##############################################################################
 
-import articulo
+from osv import osv
+from osv import fields
+
+class articulo(osv.Model):
+    
+    _name = 'articulo'
+    _description = 'Articulo de un paquete'
+ 
+    _columns = {
+            'idArticulo':fields.char('ID', size=64, required=True, readonly=False),
+            'descripcion':fields.char('Descripcion', size=90, required=True, readonly=False),
+            'weight':fields.integer("Peso"),
+            'valor':fields.integer("Valor"),
+            'isComercial': fields.boolean('Es comercial?'),
+        }
+articulo()

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="act_articulo" model="ir.actions.act_window">
+			<field name="name">Articulos</field>
+			<field name="res_model">articulo</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+		<record model="ir.ui.view" id="view_paqueteria_articulo_form">
+			<field name="name">view_paqueteria_articulo_form</field>
+			<field name="model">articulo</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Articulos">
+					<field name="idArticulo" colspan="4" />
+					<field name="descripcion" />
+					<field name="peso" />
+					<field name="valor" />
+					<field name="isComercial" />
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_paqueteria_articulo_tree_view">
+			<field name="name">view_paqueteria_articulo_tree</field>
+			<field name="model">articulo</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="idArticulo"/>
+					<field name="descripcion" />
+					<field name="peso" />
+					<field name="valor" />
+					<field name="isComercial" />
+				</tree>
+			</field>
+		</record>
+		<menuitem id="paqueteria" name="Paqueteria Express" action="act_articulo" />
+		<menuitem name="Articulos" id="articulos_submenu" parent="paqueteria"
+			sequence="100" action="act_articulo" />
+	</data>
+</openerp> 

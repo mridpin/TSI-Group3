@@ -32,7 +32,7 @@ class articulo(osv.Model):
     _columns = {
             'idArticulo':fields.char('ID', size=64, required=True, readonly=False),
             'descripcion':fields.char('Descripcion', size=90, required=True, readonly=False),
-            'weight':fields.integer("Peso"),
+            'peso':fields.integer("Peso"),
             'valor':fields.integer("Valor"),
             'isComercial': fields.boolean('Es comercial?'),
         }

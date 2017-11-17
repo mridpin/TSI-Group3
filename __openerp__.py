@@ -32,6 +32,7 @@
     Aplicacion para una empresa de paqueteria express
     """,
     "init_xml": [],
+    'data' : ['articulo_view.xml'],
     'update_xml': [],
     'demo_xml': [],
     'installable': True,

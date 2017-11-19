@@ -29,8 +29,14 @@ class paquete(osv.Model):
     _description = 'Paquete con el que trabaja la empresa'
  
     _columns = {
-            #'name':fields.char('data', size=64, required=False, readonly=False),
+            # 'name':fields.char('data', size=64, required=False, readonly=False),
             'tarifa':fields.float('Tarifa del paquete', size=32, required=True, readonly=False),
-            'fechaEntrega': fields.datetime('Fecha de la entrega del paquete', requiered=False, autodate=True)
+            'fechaEntrega':fields.datetime('Fecha de la entrega del paquete', requiered=False, autodate=True),
+            'isUrgente':fields.boolean('Es un envío urgente?'),
+            'isEntregado':fields.boolean('Ha sido ya entregado?'),
+            'isAdminPublica':fields.boolean('El paquete es de la administración pública?'),
+            'isIternacional':fields.boolean('El paquete es internacional?'),
+            'dimension':fields.float('Volument del paquete', size=32, required=True, readonly=False),
+            'peso':field.integerValue('Peso del paquete'),
         }
 paquete()

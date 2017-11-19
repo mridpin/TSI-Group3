@@ -1,4 +1,3 @@
-
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
@@ -21,5 +20,17 @@
 #
 ##############################################################################
 
-import articulo
-import paquete
+from osv import osv
+from osv import fields
+
+class paquete(osv.Model):
+
+    _name = 'paquete'
+    _description = 'Paquete con el que trabaja la empresa'
+ 
+    _columns = {
+            #'name':fields.char('data', size=64, required=False, readonly=False),
+            'tarifa':fields.float('Tarifa del paquete', size=32, required=True, readonly=False),
+            'fechaEntrega': fields.datetime('Fecha de la entrega del paquete', requiered=False, autodate=True)
+        }
+paquete()

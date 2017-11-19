@@ -37,6 +37,6 @@ class paquete(osv.Model):
             'isAdminPublica':fields.boolean('El paquete es de la administración pública?'),
             'isIternacional':fields.boolean('El paquete es internacional?'),
             'dimension':fields.float('Volument del paquete', size=32, required=True, readonly=False),
-            'peso':field.integerValue('Peso del paquete'),
+            'peso':fields.integer('Peso del paquete'),
         }
 paquete()

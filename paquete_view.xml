@@ -5,7 +5,26 @@
 			<field name="name">Paquetes</field>
 			<field name="res_model">paquete</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+		<record model="ir.ui.view" id="view_paqueteria_paquete_form">
+			<field name="name">view_paqueteria_paquete_form</field>
+			<field name="model">paquete</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Paquetes">
+					<field name="tarifa" />
+					<field name="fechaEntrega" />
+					<field name="isUrgente" />
+					<field name="isEntregado" />
+					<field name="isAdminPublica" />
+					<field name="isInternacional" />
+					<field name="dimension" />
+					<field name="peso" />
+					<field name="valor" />
+					<field name="isAsegurado" />	
+				</form>
+			</field>
 		</record>
 		<record model="ir.ui.view" id="view_paqueteria_paquete_tree_view">
 			<field name="name">view_paqueteria_paquete_tree</field>

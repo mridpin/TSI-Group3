@@ -30,13 +30,15 @@ class paquete(osv.Model):
  
     _columns = {
             # 'name':fields.char('data', size=64, required=False, readonly=False),
-            'tarifa':fields.float('Tarifa del paquete', size=32, required=True, readonly=False),
-            'fechaEntrega':fields.datetime('Fecha de la entrega del paquete', requiered=False, autodate=True),
-            'isUrgente':fields.boolean('Es un envío urgente?'),
-            'isEntregado':fields.boolean('Ha sido ya entregado?'),
-            'isAdminPublica':fields.boolean('El paquete es de la administración pública?'),
-            'isIternacional':fields.boolean('El paquete es internacional?'),
-            'dimension':fields.float('Volument del paquete', size=32, required=True, readonly=False),
-            'peso':fields.integer('Peso del paquete'),
+            'tarifa':fields.float('Tarifa', size=32, required=True, readonly=True),
+            'fechaEntrega':fields.datetime('Fecha de entrega', requiered=False, autodate=True),
+            'isUrgente':fields.boolean('Urgente', required=True),
+            'isEntregado':fields.boolean('Entregado', readonly=True),
+            'isAdminPublica':fields.boolean('Administración pública', required=True),
+            'isInternacional':fields.boolean('Internacional', required=True),
+            'dimension':fields.integer('Volumen', required=True, readonly=False),
+            'peso':fields.integer('Peso', required=True, readonly=True),
+            'valor':fields.integer('Valor', required=True, readonly=True),
+            'isAsegurado':fields.boolean('Asegurado', required=True)
         }
 paquete()

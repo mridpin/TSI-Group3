@@ -15,6 +15,14 @@
 				<tree string="tree_string">
 					<field name="tarifa" />
 					<field name="fechaEntrega" />
+					<field name="isUrgente" />
+					<field name="isEntregado" />
+					<field name="isAdminPublica" />
+					<field name="isInternacional" />
+					<field name="dimension" />
+					<field name="peso" />
+					<field name="valor" />
+					<field name="isAsegurado" />					
 				</tree>
 			</field>
 		</record>

@@ -30,15 +30,17 @@ class paquete(osv.Model):
  
     _columns = {
             # 'name':fields.char('data', size=64, required=False, readonly=False),
-            'tarifa':fields.float('Tarifa', size=32, required=True, readonly=True),
-            'fechaEntrega':fields.datetime('Fecha de entrega', requiered=False, autodate=True),
-            'isUrgente':fields.boolean('Urgente', required=True),
+            'idPaquete':fields.char('ID', size=64, required=True, readonly=False),
+            'tarifa':fields.float('Tarifa', readonly=True),
+            'fechaEntrega':fields.datetime('Fecha de entrega', autodate=True),
+            'isUrgente':fields.boolean('Urgente'),
             'isEntregado':fields.boolean('Entregado', readonly=True),
-            'isAdminPublica':fields.boolean('Administración pública', required=True),
-            'isInternacional':fields.boolean('Internacional', required=True),
-            'dimension':fields.integer('Volumen', required=True, readonly=False),
-            'peso':fields.integer('Peso', required=True, readonly=True),
-            'valor':fields.integer('Valor', required=True, readonly=True),
-            'isAsegurado':fields.boolean('Asegurado', required=True)
+            'isAdminPublica':fields.boolean('Administración pública'),
+            'isInternacional':fields.boolean('Internacional'),
+            'dimension':fields.integer('Volumen', readonly=False),
+            'peso':fields.integer('Peso', readonly=True),
+            'valor':fields.integer('Valor', readonly=True),
+            'isAsegurado':fields.boolean('Asegurado'),
+            'articulos':fields.one2many('articulo', 'paquete_id', 'Artículos')
         }
 paquete()

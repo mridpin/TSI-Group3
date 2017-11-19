@@ -13,6 +13,7 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Paquetes">
+					<field name ="idPaquete" />
 					<field name="tarifa" />
 					<field name="fechaEntrega" />
 					<field name="isUrgente" />
@@ -22,7 +23,14 @@
 					<field name="dimension" />
 					<field name="peso" />
 					<field name="valor" />
-					<field name="isAsegurado" />	
+					<field name="isAsegurado" />
+					<field name="articulos" colspan="4" mode="tree">
+						<tree>
+							<field name="idArticulo"/>
+							<field name="peso"/>
+							<field name="valor"/>
+						</tree>
+					</field>
 				</form>
 			</field>
 		</record>
@@ -32,6 +40,7 @@
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
+					<field name="idPaquete" />
 					<field name="tarifa" />
 					<field name="fechaEntrega" />
 					<field name="isUrgente" />

@@ -35,5 +35,6 @@ class articulo(osv.Model):
             'peso':fields.integer("Peso"),
             'valor':fields.integer("Valor"),
             'isComercial': fields.boolean('Es comercial?'),
+            'paquete_id': fields.many2one('paquete', 'Paquete')
         }
 articulo()

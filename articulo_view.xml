@@ -5,7 +5,7 @@
 			<field name="name">Articulos</field>
 			<field name="res_model">articulo</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">form,tree</field>
+			<field name="view_mode">tree,form</field>
 		</record>
 		<record model="ir.ui.view" id="view_paqueteria_articulo_form">
 			<field name="name">view_paqueteria_articulo_form</field>
@@ -37,7 +37,7 @@
 		</record>
 		<menuitem id="paqueteria" name="Paqueteria Express" action="act_articulo" />
 		<menuitem name="Articulos" id="articulos_submenu" parent="paqueteria"
-			sequence="100" action="act_articulo" />
+			sequence="110" action="act_articulo" />
 		<menuitem name="Ver Articulos" id="ver_articulos_submenu"
 			parent="articulos_submenu" sequence="110" action="act_articulo" />
 	</data>

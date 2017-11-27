@@ -35,6 +35,20 @@
 				</tree>
 			</field>
 		</record>
+
+		<record model="ir.ui.view" id="view_manage_articulo_search">
+			<field name="name">view_manage_articulo_search</field>
+			<field name="model">articulo</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Articulos">
+					<filter string="Articulos Comerciales"
+						domain="[('isComercial','=',true)]" />					
+				</search>
+			</field>
+		</record>
+
+
 		<menuitem id="paqueteria" name="Paqueteria Express" action="act_articulo" />
 		<menuitem name="Articulos" id="articulos_submenu" parent="paqueteria"
 			sequence="110" action="act_articulo" />

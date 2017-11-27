@@ -6,7 +6,24 @@
 			<field name="res_model">articulo</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="view_manage_articulo_search"/>
 		</record>
+		
+		<record model="ir.ui.view" id="view_manage_articulo_search">
+			<field name="name">view_manage_articulo_search</field>
+			<field name="model">articulo</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Articulos">
+					<filter string="Articulos Comerciales"
+						domain="[('isComercial','=',True)]" />
+						<filter string="Articulos No Comerciales"
+						domain="[('isComercial','=',False)]" />					
+				</search>
+			</field>
+		</record>
+		
+		
 		<record model="ir.ui.view" id="view_paqueteria_articulo_form">
 			<field name="name">view_paqueteria_articulo_form</field>
 			<field name="model">articulo</field>
@@ -33,18 +50,6 @@
 					<field name="valor" />
 					<field name="isComercial" />
 				</tree>
-			</field>
-		</record>
-
-		<record model="ir.ui.view" id="view_manage_articulo_search">
-			<field name="name">view_manage_articulo_search</field>
-			<field name="model">articulo</field>
-			<field name="type">search</field>
-			<field name="arch" type="xml">
-				<search string="Articulos">
-					<filter string="Articulos Comerciales"
-						domain="[('isComercial','=',true)]" />					
-				</search>
 			</field>
 		</record>
 

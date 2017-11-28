@@ -29,8 +29,7 @@ class paquete(osv.Model):
     _description = 'Paquete con el que trabaja la empresa'
  
     _columns = {
-            # 'name':fields.char('data', size=64, required=False, readonly=False),
-            'idPaquete':fields.char('ID', size=64, required=True, readonly=False),
+            'id_paquete':fields.char('ID', size=64, required=True, readonly=False),
             'tarifa':fields.float('Tarifa', readonly=True),
             'fechaEntrega':fields.datetime('Fecha de entrega', autodate=True),
             'isUrgente':fields.boolean('Urgente'),
@@ -41,6 +40,6 @@ class paquete(osv.Model):
             'peso':fields.integer('Peso', readonly=True),
             'valor':fields.integer('Valor', readonly=True),
             'isAsegurado':fields.boolean('Asegurado'),
-            'articulos':fields.one2many('articulo', 'paquete_id', 'Artículos')
+            'articulos':fields.many2many('articulo', 'paquete_articulo_rel', 'id_paquete', 'id_articulo', 'Artículos incluídos'),
         }
 paquete()

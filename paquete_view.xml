@@ -7,7 +7,7 @@
 			<field name="type">calendar</field>
 			<field name="arch" type="xml">
 				<calendar string="Paquete" color="isUrgente" date_start="fechaEntrega">
-					<field name="idPaquete" />
+					<field name="id_paquete" />
 					<field name="tarifa"/>
 				</calendar>
 			</field>
@@ -19,7 +19,7 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Paquetes">
-					<field name ="idPaquete" />
+					<field name ="id_paquete" />
 					<field name="tarifa" />
 					<field name="fechaEntrega" />
 					<field name="isUrgente" />
@@ -32,7 +32,7 @@
 					<field name="isAsegurado" />
 					<field name="articulos" colspan="4" mode="tree">
 						<tree>
-							<field name="idArticulo"/>
+							<field name="id_articulo"/>
 							<field name="peso"/>
 							<field name="valor"/>
 						</tree>
@@ -46,7 +46,7 @@
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
-					<field name="idPaquete" />
+					<field name="id_paquete" />
 					<field name="tarifa" />
 					<field name="fechaEntrega" />
 					<field name="isUrgente" />

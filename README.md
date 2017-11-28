@@ -1,14 +1,14 @@
-## TSI-Group3
+# TSI-Group3
 
-# Componentes del grupo:
+## Componentes del grupo:
 * Victor Martinelli
 * Manuel Ridao Pineda
 * Stefano Marzo
 
-# Temática del trabajo:
+## Temática del trabajo:
 * Sistema de información para empresa de paquetería express
 
-# Entregas definidas:
+## Entregas definidas:
 1. 1 noviembre 2017 (15%):
 
     1.1. Documento de Visión y Alcance

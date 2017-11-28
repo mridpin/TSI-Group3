@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-		<record id="act_paquete" model="ir.actions.act_window">
-			<field name="name">Paquetes</field>
-			<field name="res_model">paquete</field>
-			<field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
+		<record model="ir.ui.view" id="view_paqueteria_paquete_calendar">
+			<field name="name">view_paqueteria_paquete_calendar</field>
+			<field name="model">paquete</field>
+			<field name="type">calendar</field>
+			<field name="arch" type="xml">
+				<calendar string="Paquete" color="isUrgente" date_start="fechaEntrega">
+					<field name="idPaquete" />
+					<field name="tarifa"/>
+				</calendar>
+			</field>
 		</record>
+		
 		<record model="ir.ui.view" id="view_paqueteria_paquete_form">
 			<field name="name">view_paqueteria_paquete_form</field>
 			<field name="model">paquete</field>
@@ -53,6 +59,12 @@
 					<field name="isAsegurado" />					
 				</tree>
 			</field>
+		</record>
+		<record id="act_paquete" model="ir.actions.act_window">
+			<field name="name">Paquetes</field>
+			<field name="res_model">paquete</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,calendar</field>
 		</record>
 		<menuitem id="paqueteria" name="Paqueteria Express" action="act_paquete" />
 		<menuitem name="Paquetes" id="paquetes_submenu" parent="paqueteria"

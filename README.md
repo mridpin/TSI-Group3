@@ -5,7 +5,7 @@
 * Manuel Ridao Pineda
 * Stefano Marzo
 
-## Temática del trabajo:
+## Temática del tra:b:ajo:
 * Sistema de información para empresa de paquetería express
 
 ## Entregas definidas:

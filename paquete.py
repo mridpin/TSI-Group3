@@ -32,6 +32,8 @@ class paquete(osv.Model):
             'id_paquete':fields.char('ID', size=64, required=True, readonly=False),
             'tarifa':fields.float('Tarifa', readonly=True),
             'fechaEntrega':fields.datetime('Fecha de entrega', autodate=True),
+            'remitente':fields.many2one('cliente', 'Remitente'),
+            'destinatario':fields.many2one('cliente', 'Destinatario'),
             'isUrgente':fields.boolean('Urgente'),
             'isEntregado':fields.boolean('Entregado', readonly=True),
             'isAdminPublica':fields.boolean('Administración pública'),

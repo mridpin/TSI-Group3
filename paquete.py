@@ -41,5 +41,6 @@ class paquete(osv.Model):
             'valor':fields.integer('Valor', readonly=True),
             'isAsegurado':fields.boolean('Asegurado'),
             'articulos':fields.many2many('articulo', 'paquete_articulo_rel', 'id_paquete', 'id_articulo', 'Artículos incluídos'),
+            
         }
 paquete()

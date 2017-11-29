@@ -28,9 +28,9 @@ class cliente(osv.Model):
     
     _name = 'cliente'
     _description = 'Cliente de un paquete'
-    _inherit = 'persona'
  
     _columns = {
+            'id_persona':fields.char('id_persona(temporal)', size=64, required=True, readonly=False),
             'email':fields.char('email', size=64, required=True, readonly=False),
             'telefono':fields.char('Telefono', size=20, required=True, readonly=False),
             'puntos':fields.integer("Puntos")

@@ -13,7 +13,7 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Clientes">
-					<field name="idPersona" colspan="4" />
+					<field name="id_persona" />
 					<field name="email" />
 					<field name="telefono" />
 					<field name="puntos" />
@@ -26,7 +26,7 @@
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
-					<field name="idPersona" colspan="4" />
+					<field name="id_persona" />
 					<field name="email" />
 					<field name="telefono" />
 					<field name="puntos" />

@@ -2,4 +2,5 @@ eclipse.preferences.version=1
 encoding/__init__.py=utf-8
 encoding/__openerp__.py=utf-8
 encoding/articulo.py=utf-8
+encoding/cliente.py=utf-8
 encoding/paquete.py=utf-8

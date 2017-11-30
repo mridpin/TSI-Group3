@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-		<record id="act_cliente" model="ir.actions.act_window">
-			<field name="name">Clientes</field>
-			<field name="res_model">cliente</field>
-			<field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
+
+		<record model="ir.ui.view" id="view_manage_cliente_search">
+			<field name="name">view_manage_cliente_search</field>
+			<field name="model">cliente</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Clientes">
+					<filter string="Puntos &gt; 100" domain="[('puntos','&gt;',100)]" />
+				</search>
+			</field>
 		</record>
+		
+		
 		<record model="ir.ui.view" id="view_paqueteria_cliente_form">
 			<field name="name">view_paqueteria_cliente_form</field>
 			<field name="model">cliente</field>
@@ -17,9 +24,21 @@
 					<field name="email" />
 					<field name="telefono" />
 					<field name="puntos" />
+					<field name="paquetes_enviados" colspan="2" mode="tree">
+						<tree>
+							<field name="id_paquete"/>
+						</tree>
+					</field>
+					<field name="paquetes_recebidos" colspan="2" mode="tree">
+						<tree>
+							<field name="id_paquete"/>
+						</tree>
+					</field>
 				</form>
 			</field>
 		</record>
+		
+		
 		<record model="ir.ui.view" id="view_paqueteria_cliente_tree_view">
 			<field name="name">view_paqueteria_cliente_tree</field>
 			<field name="model">cliente</field>
@@ -33,6 +52,17 @@
 				</tree>
 			</field>
 		</record>
+
+
+		<record id="act_cliente" model="ir.actions.act_window">
+			<field name="name">Clientes</field>
+			<field name="res_model">cliente</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="view_manage_cliente_search" />
+		</record>
+
+		
 		<menuitem id="paqueteria" name="Paqueteria Express" action="act_cliente" />
 		<menuitem name="Clientes" id="clientes_submenu" parent="paqueteria"
 			sequence="110" action="act_cliente" />

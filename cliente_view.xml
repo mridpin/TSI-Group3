@@ -25,15 +25,15 @@
 					<field name="telefono" />
 					<field name="puntos" />
 					<field name="paquetes_enviados" colspan="2" mode="tree">
-						<tree>
+						<tree string="tree_string">
 							<field name="id_paquete"/>
 						</tree>
 					</field>
 					<field name="paquetes_recebidos" colspan="2" mode="tree">
-						<tree>
+						<tree string="tree_string">
 							<field name="id_paquete"/>
 						</tree>
-					</field>
+					</field>					
 				</form>
 			</field>
 		</record>

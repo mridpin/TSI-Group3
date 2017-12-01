@@ -29,20 +29,24 @@ class paquete(osv.Model):
     _description = 'Paquete con el que trabaja la empresa'
  
     _columns = {
-            'id_paquete':fields.char('ID', size=64, required=True, readonly=False),
+            #Aclaración: id_paquete es un campo autonumérico. Se ha definido como char de manera temporal.
+            'id_paquete':fields.char('ID Paquete', size=64, required=True, readonly=False),
+            #Aclaración: tarifa es un campo funcional, calculado a partir de otros parámetros. Se ha como float de manera temporal.
             'tarifa':fields.float('Tarifa', readonly=True),
             'fechaEntrega':fields.datetime('Fecha de entrega', autodate=True),
-            'remitente':fields.many2one('cliente', 'Remitente'),
-            'destinatario':fields.many2one('cliente', 'Destinatario'),
+            'remitente':fields.many2one('cliente', 'Remitente', required=True),
+            'destinatario':fields.many2one('cliente', 'Destinatario', required=True),
             'isUrgente':fields.boolean('Urgente'),
+            #Aclaración: tarifa es un campo funcional, calculado a partir de la fecha de entrega. Se ha como booleano de manera temporal.
             'isEntregado':fields.boolean('Entregado', readonly=True),
             'isAdminPublica':fields.boolean('Administración pública'),
             'isInternacional':fields.boolean('Internacional'),
             'dimension':fields.integer('Volumen', readonly=False),
             'peso':fields.integer('Peso', readonly=True),
+            #Aclaración: valor es un campo funcional, calculado a partir de los artículos. Se ha como integer de manera temporal.
             'valor':fields.integer('Valor', readonly=True),
             'isAsegurado':fields.boolean('Asegurado'),
-            'articulos':fields.many2many('articulo', 'paquete_articulo_rel', 'id_paquete', 'id_articulo', 'Artículos incluídos'),
+            'articulos':fields.many2many('articulo', 'paquete_articulo_rel', 'id_paquete', 'id_articulo', 'Artículos incluídos', required=True),
             
         }
 paquete()

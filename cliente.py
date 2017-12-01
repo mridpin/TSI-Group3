@@ -29,11 +29,12 @@ class cliente(osv.Model):
     _description = 'Cliente de un paquete'
  
     _columns = {
-            'id_persona':fields.char('id_persona(temporal)', size=64, required=True, readonly=False),
+            #Aclaración: id_persona es un atributo del modelo "persona". Se ha definido para cliente de manera temporal.
+            'id_persona':fields.char('ID Cliente', size=64, required=True, readonly=False),
             'email':fields.char('email', size=64, required=True, readonly=False),
             'telefono':fields.char('Telefono', size=20, required=True, readonly=False),
             'puntos':fields.integer("Puntos"),
-            'paquetes_enviados':fields.one2many('paquete', 'id_paquete', 'paquetes enviados'),
-            'paquetes_recebidos':fields.one2many('paquete', 'id_paquete', 'paquetes recebidos')
+            'paquetes_enviados':fields.one2many('paquete', 'remitente', 'Paquetes Enviados'),
+            'paquetes_recebidos':fields.one2many('paquete', 'destinatario', 'Paquetes Recibidos')
         }
 cliente()

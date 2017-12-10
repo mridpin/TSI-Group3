@@ -73,7 +73,7 @@
 		<menuitem id="paqueteria" name="Paqueteria Express" action="act_paquete" />
 		<menuitem name="Paquetes" id="paquetes_submenu" parent="paqueteria"
 			sequence="100" action="act_paquete" />
-		<menuitem name="Ver paquetes" id="ver_paquetes_submenu"
+		<menuitem name="Ver Paquetes" id="ver_paquetes_submenu"
 			parent="paquetes_submenu" sequence="110" action="act_paquete" />
 	</data>
 </openerp> 

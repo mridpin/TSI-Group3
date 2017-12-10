@@ -24,7 +24,7 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Articulos">
-					<field name="id_articulo" colspan="4" />
+					<field name="name" colspan="4" />
 					<field name="descripcion" />
 					<field name="peso" />
 					<field name="valor" />
@@ -38,7 +38,7 @@
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
-					<field name="id_articulo" />
+					<field name="name" />
 					<field name="descripcion" />
 					<field name="peso" />
 					<field name="valor" />

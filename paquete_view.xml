@@ -34,7 +34,7 @@
 					<field name="isAsegurado" />
 					<field name="articulos" colspan="4" mode="tree">
 						<tree>
-							<field name="id_articulo"/>
+							<field name="name"/>
 							<field name="peso"/>
 							<field name="valor"/>
 						</tree>

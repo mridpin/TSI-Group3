@@ -46,7 +46,7 @@ class paquete(osv.Model):
             #Aclaración: valor es un campo funcional, calculado a partir de los artículos. Se ha como integer de manera temporal.
             'valor':fields.integer('Valor', readonly=True),
             'isAsegurado':fields.boolean('Asegurado'),
-            'articulos':fields.many2many('articulo', 'paquete_articulo_rel', 'id_paquete', 'id_articulo', 'Artículos incluídos', required=True),
+            'articulos':fields.many2many('articulo', 'paquete_articulo_rel', 'id_paquete', 'name', 'Artículos incluídos', required=True),
             
         }
 paquete()

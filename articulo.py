@@ -35,6 +35,6 @@ class articulo(osv.Model):
             'peso':fields.float("Peso",digits=(5,2)),
             'valor':fields.float("Valor",digits=(5,2)),
             'isComercial': fields.boolean('Es comercial?'),
-            'paquetes':fields.many2many('paquete', 'paquete_articulo_rel', 'name', 'id_paquete'),
+            'paquetes':fields.many2many('paquete', 'paquete_articulo_rel', 'id_articulo', 'id_paquete','Artículos incluídos', required=True),
         }
 articulo()

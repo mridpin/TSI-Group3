@@ -30,7 +30,7 @@ class paquete(osv.Model):
  
     _columns = {
             #Aclaración: id_paquete es un campo autonumérico. Se ha definido como char de manera temporal.
-            'id_paquete':fields.char('ID Paquete', size=64, required=True, readonly=False),
+            'name':fields.char('ID Paquete', size=64, required=True, readonly=False),
             #Aclaración: tarifa es un campo funcional, calculado a partir de otros parámetros. Se ha como float de manera temporal.
             'tarifa':fields.float('Tarifa', readonly=True),
             'fechaEntrega':fields.datetime('Fecha de entrega', autodate=True),
@@ -46,7 +46,7 @@ class paquete(osv.Model):
             #Aclaración: valor es un campo funcional, calculado a partir de los artículos. Se ha como integer de manera temporal.
             'valor':fields.integer('Valor', readonly=True),
             'isAsegurado':fields.boolean('Asegurado'),
-            'articulos':fields.many2many('articulo', 'paquete_articulo_rel', 'id_paquete', 'name', 'Artículos incluídos', required=True),
+            'articulos':fields.many2many('articulo', 'paquete_articulo_rel', 'id_paquete', 'id_articulo', 'Artículos incluídos', required=True),
             
         }
 paquete()

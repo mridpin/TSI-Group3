@@ -20,7 +20,7 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Clientes">
-					<field name="id_persona" />
+					<field name="name" />
 					<field name="email" />
 					<field name="telefono" />
 					<field name="puntos" />
@@ -45,7 +45,7 @@
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
-					<field name="id_persona" />
+					<field name="name" />
 					<field name="email" />
 					<field name="telefono" />
 					<field name="puntos" />

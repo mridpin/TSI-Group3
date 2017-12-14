@@ -21,6 +21,7 @@
 #
 ##############################################################################
 
+import persona
 import articulo
 import paquete
 import cliente

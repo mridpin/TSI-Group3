@@ -20,6 +20,7 @@
 			<field name="arch" type="xml">
 				<search string="Paquetes">
 					<filter string="Paquetes Urgentes" domain="[('isUrgente','=',True)]" />
+					<filter string="Paquetes Internacionales" domain="[('isInternacional','=',True)]" />
 				</search>
 			</field>
 		</record>

@@ -21,6 +21,7 @@
 				<search string="Paquetes">
 					<filter string="Paquetes Urgentes" domain="[('isUrgente','=',True)]" />
 					<filter string="Paquetes Internacionales" domain="[('isInternacional','=',True)]" />
+					<filter string="Paquetes Nacionales" domain="[('isInternacional','=',False)]" />
 				</search>
 			</field>
 		</record>

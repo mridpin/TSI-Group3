@@ -24,7 +24,7 @@
 
 {
     "name": "Paqueteria Express",
-    "version": "1.0",
+    "version": "1.1",
     "depends": ["base"],
     "author": "Victor Martinelli, Manuel Ridao Pineda, Stefano Marzo",
     "category": "paqueteria",

@@ -23,6 +23,8 @@
 					<filter string="Paquetes Internacionales" domain="[('isInternacional','=',True)]" />
 					<filter string="Paquetes Nacionales" domain="[('isInternacional','=',False)]" />
 					<filter string="Paquetes Asegurados" domain="[('isAsegurado','=',True)]" />
+					<filter string="Paquetes No Asegurados" domain="[('isAsegurado','=',False)]" />
+					<filter string="Paquetes Administracion Publica" domain="[('isAdminPublica','=',True)]" />
 				</search>
 			</field>
 		</record>

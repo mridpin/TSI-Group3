@@ -14,10 +14,6 @@
 			</field>
 		</record>
 
-
-
-
-
 		<record model="ir.ui.view" id="view_paqueteria_articulo_form">
 			<field name="name">view_paqueteria_articulo_form</field>
 			<field name="model">articulo</field>

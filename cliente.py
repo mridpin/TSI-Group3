@@ -30,7 +30,6 @@ class cliente(osv.Model):
     _inherit = "persona"
  
     _columns = {
-            #Aclaración: id_persona es un atributo del modelo "persona". Se ha definido para cliente de manera temporal.
             'email':fields.char('Email', size=64, required=True, readonly=False),
             'telefono':fields.char('Telefono', size=20, required=True, readonly=False),
             'puntos':fields.integer("Puntos"),

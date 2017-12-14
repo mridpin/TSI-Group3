@@ -13,6 +13,18 @@
 			</field>
 		</record>
 		
+		<record model="ir.ui.view" id="view_manage_paquete_search">
+			<field name="name">view_manage_paquete_search</field>
+			<field name="model">paquete</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Paquetes">
+					<filter string="Paquetes Urgentes" domain="[('isUrgente','=',True)]" />
+				</search>
+			</field>
+		</record>
+		
+		
 		<record model="ir.ui.view" id="view_paqueteria_paquete_form">
 			<field name="name">view_paqueteria_paquete_form</field>
 			<field name="model">paquete</field>

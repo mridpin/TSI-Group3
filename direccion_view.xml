@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		
+		<record model="ir.ui.view" id="view_paqueteria_direccion_form">
+			<field name="name">view_paqueteria_direccion_form</field>
+			<field name="model">direccion</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Direccion">
+					<field name="calle" />
+					<field name="codigoPostal" />
+					<field name="pais" />					
+				</form>
+			</field>
+		</record>
+		
+		
+		<record model="ir.ui.view" id="view_paqueteria_direccion_tree_view">
+			<field name="name">view_paqueteria_direccion_tree</field>
+			<field name="model">direccion</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="calle" />
+					<field name="codigoPostal" />
+					<field name="pais" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record id="act_direccion" model="ir.actions.act_window">
+			<field name="name">Direccion</field>
+			<field name="res_model">direccion</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		
+		<menuitem id="paqueteria" name="Paqueteria Express" action="act_direccion" />
+		<menuitem name="Direcciones" id="direccion_submenu" parent="paqueteria"
+			sequence="110" action="act_direccion" />
+		<menuitem name="Ver Direccion" id="ver_direccion_submenu"
+			parent="direccion_submenu" sequence="110" action="act_direccion" />
+	</data>
+</openerp> 

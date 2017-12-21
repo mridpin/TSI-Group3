@@ -10,7 +10,8 @@
 				<form string="Direccion">
 					<field name="calle" />
 					<field name="codigoPostal" />
-					<field name="pais" />					
+					<field name="pais" />
+					<field name="cliente_id"/>					
 				</form>
 			</field>
 		</record>
@@ -25,6 +26,7 @@
 					<field name="calle" />
 					<field name="codigoPostal" />
 					<field name="pais" />
+					<field name="cliente_id"/>	
 				</tree>
 			</field>
 		</record>

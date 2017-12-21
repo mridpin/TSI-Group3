@@ -32,6 +32,7 @@ class direccion(osv.Model):
     _columns = {
             'calle':fields.char('Calle', size=64, required=True, readonly=False),
             'codigoPostal':fields.char('Codigo Postal', size=64, required=True, readonly=False),
-            'pais': fields.many2one('res.country', 'Pais'), 
+            'pais': fields.many2one('res.country', 'Pais'),
+            'cliente_id':fields.many2one('cliente','Cliente'),
         }
 direccion()

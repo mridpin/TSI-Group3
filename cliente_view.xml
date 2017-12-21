@@ -24,6 +24,7 @@
 					<field name="email" />
 					<field name="telefono" />
 					<field name="puntos" />
+					<field name="direccion_ids"/>
 					<field name="paquetes_enviados" colspan="2" mode="tree">
 						<tree string="tree_string">
 							<field name="name"/>
@@ -49,6 +50,7 @@
 					<field name="email" />
 					<field name="telefono" />
 					<field name="puntos" />
+					<field name="direccion_ids"/>
 				</tree>
 			</field>
 		</record>

@@ -21,8 +21,17 @@
 #
 ##############################################################################
 
-import persona
-import articulo
-import direccion
-import paquete
-import cliente
+from osv import osv
+from osv import fields
+
+class direccion(osv.Model):
+
+    _name = 'direccion'
+    _description = 'Direccion de los clientes'
+ 
+    _columns = {
+            'calle':fields.char('Calle', size=64, required=True, readonly=False),
+            'codigoPostal':fields.char('Codigo Postal', size=64, required=True, readonly=False),
+            'pais': fields.many2one('res.country', 'Pais'), 
+        }
+direccion()

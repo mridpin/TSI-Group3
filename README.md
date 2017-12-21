@@ -21,7 +21,7 @@
     
     2.2. Tres entidades implementadas
     
-3. 29 diciembre 2017 (50%):
+3. 3 enero 2018 (50%):
 
     3.1. Documento de Visión y Alcance revisado
     

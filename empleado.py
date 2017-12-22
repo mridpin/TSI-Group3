@@ -21,9 +21,20 @@
 #
 ##############################################################################
 
-import persona
-import articulo
-import direccion
-import paquete
-import empleado
-import cliente
+from osv import osv
+from osv import fields
+
+class empleado(osv.Model):
+
+    _name = 'empleado'
+    _description = 'Empleado de la empresa'
+    _inherit = "persona"
+    
+    _columns = {
+            'idEMpleado':fields.char('ID', size=64, required=False, readonly=False),
+            'isGestorQuejas': fields.boolean('Gestiona Quejas?'),
+            'isManager': fields.boolean('Gestiona Quejas?'),
+            'oficina':fields.char('Oficina', size=64, required=False, readonly=False),
+            #Fala relacion con EventoQueja
+        }
+empleado()

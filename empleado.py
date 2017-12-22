@@ -31,9 +31,9 @@ class empleado(osv.Model):
     _inherit = "persona"
     
     _columns = {
-            'idEMpleado':fields.char('ID', size=64, required=False, readonly=False),
+            'idEmpleado':fields.char('ID Empleado', size=64, required=False, readonly=False),
             'isGestorQuejas': fields.boolean('Gestiona Quejas?'),
-            'isManager': fields.boolean('Gestiona Quejas?'),
+            'isManager': fields.boolean('Es Manager?'),
             'oficina':fields.char('Oficina', size=64, required=False, readonly=False),
             #Fala relacion con EventoQueja
         }

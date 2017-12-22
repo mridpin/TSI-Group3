@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>	
+		
+		<record model="ir.ui.view" id="view_paqueteria_empleado_form">
+			<field name="name">view_paqueteria_empleado_form</field>
+			<field name="model">empleado</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Empleados">
+					<field name="name" />
+					<field name="idEmpleado" />
+					<field name="isGestorQuejas" />
+					<field name="isManager" />
+					<field name="oficina"/>				
+				</form>
+			</field>
+		</record>
+		
+		
+		<record model="ir.ui.view" id="view_paqueteria_empleado_tree_view">
+			<field name="name">view_paqueteria_empleado_tree</field>
+			<field name="model">empleado</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="idEmpleado" />
+					<field name="isGestorQuejas" />
+					<field name="isManager" />
+					<field name="oficina"/>	
+				</tree>
+			</field>
+		</record>
+
+
+		<record id="act_empleado" model="ir.actions.act_window">
+			<field name="name">Empleado</field>
+			<field name="res_model">empleado</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		
+		<menuitem id="paqueteria" name="Paqueteria Express" action="act_empleado" />
+		<menuitem name="Empleados" id="empleados_submenu" parent="paqueteria"
+			sequence="110" action="act_empleado" />
+		<menuitem name="Ver Empleados" id="ver_empleados_submenu"
+			parent="empleados_submenu" sequence="110" action="act_empleado" />
+	</data>
+</openerp> 

@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>	
+	
+	<record model="ir.ui.view" id="view_manage_empleado_search">
+			<field name="name">view_manage_empleado_search</field>
+			<field name="model">empleado</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Empleados">
+					<filter string="Gestionan Quejas" domain="[('isGestorQuejas','=',True)]" />
+					<filter string="Empleados Manager" domain="[('isManager','=',True)]" />
+					<filter string="Empleados Base" domain="[('isManager','=',False)]" />
+					<filter string="No Gestionan Quejas" domain="[('isGestorQuejas','=',False)]" />
+				</search>
+			</field>
+		</record>
 		
 		<record model="ir.ui.view" id="view_paqueteria_empleado_form">
 			<field name="name">view_paqueteria_empleado_form</field>
@@ -39,6 +53,7 @@
 			<field name="res_model">empleado</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="view_manage_empleado_search" />
 		</record>
 
 		

@@ -35,6 +35,6 @@ class empleado(osv.Model):
             'isGestorQuejas': fields.boolean('Gestiona Quejas?'),
             'isManager': fields.boolean('Es Manager?'),
             'oficina':fields.char('Oficina', size=64, required=False, readonly=False),
-            #Fala relacion con EventoQueja
+            'eventoqueja':fields.one2many('eventoqueja', 'empleado', 'Eventos Queja'),
         }
 empleado()

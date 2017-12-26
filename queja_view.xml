@@ -27,6 +27,11 @@
 					<field name="descripcion" />
 					<field name="fecha" />
 					<field name="is_resuelta" />
+					<field name="eventosqueja" colspan="1" mode="tree">
+						<tree>
+							<field name="name"/>
+						</tree>
+					</field>
 				</form>
 			</field>
 		</record>

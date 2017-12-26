@@ -22,6 +22,7 @@
 
 from osv import osv
 from osv import fields
+from cups import require
 
 class eventoqueja(osv.Model):
 
@@ -31,6 +32,7 @@ class eventoqueja(osv.Model):
     _columns = {
             'name':fields.char('ID Evento', size=8, required=True),
             'mensaje':fields.text('Mensaje'),
-            'queja':fields.many2one('queja', 'ID Queja'),
+            'queja':fields.many2one('queja', 'ID Queja', required=True),
+            'empleado':fields.many2one('empleado', 'ID Empleado', required=True),
         }
 eventoqueja()

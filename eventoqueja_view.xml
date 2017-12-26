@@ -19,6 +19,9 @@
 			<field name="arch" type="xml">
 				<form string="Eventos Queja">
 					<field name="name" />
+					<field name="empleado" />
+					<field name="queja" />
+					<field name="mensaje" />
 				</form>
 			</field>
 		</record>
@@ -28,9 +31,6 @@
 			<field name="res_model">eventoqueja</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
-		</record>
-
-		<menuitem id="paqueteria" name="Paqueteria Express"	action="act_eventoqueja" />
-		
+		</record>		
 	</data>
 </openerp>

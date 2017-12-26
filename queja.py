@@ -1,4 +1,3 @@
-
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
@@ -21,21 +20,20 @@
 #
 ##############################################################################
 
+from osv import osv
+from osv import fields
 
-{
-    "name": "Paqueteria Express",
-    "version": "1.1",
-    "depends": ["base"],
-    "author": "Victor Martinelli, Manuel Ridao Pineda, Stefano Marzo",
-    "category": "paqueteria",
-    "description": """
-    Aplicacion para una empresa de paqueteria express
-    """,
-    "init_xml": [],
-    'data' : ['articulo_view.xml', 'paquete_view.xml', 'cliente_view.xml','empleado_view.xml','direccion_view.xml','queja_view.xml'],
-    'update_xml': [],
-    'demo_xml': [],
-    'installable': True,
-    'active': False,
-#    'certificate': 'certificate',
-}
+class ClassName(osv.Model):
+
+    _name = 'queja'
+    _description = 'queja'
+ 
+    _columns = {
+            'name':fields.char('ID Queja', size=8, required=True),
+            'descripcion':fields.text('Descripción'),
+            'fecha':fields.date('Fecha'),
+            'is_resuelta':fields.boolean('Resuelta'),
+            'cliente':fields.many2one('cliente', 'Cliente', required=True),
+            
+        }
+ClassName()

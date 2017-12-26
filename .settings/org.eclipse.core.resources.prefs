@@ -7,3 +7,4 @@ encoding/direccion.py=utf-8
 encoding/empleado.py=utf-8
 encoding/paquete.py=utf-8
 encoding/persona.py=utf-8
+encoding/queja.py=utf-8

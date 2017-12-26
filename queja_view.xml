@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_paqueteria_queja_tree_view">
+			<field name="name">view_paqueteria_queja_tree_view</field>
+			<field name="model">queja</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Quejas">
+					<field name="name" />
+					<field name="fecha" />
+					<field name="cliente" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_paqueteria_queja_form_view">
+			<field name="name">view_paqueteria_queja_form_view</field>
+			<field name="model">queja</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Quejas">
+					<field name="name" />
+					<field name="cliente" />
+					<field name="descripcion" />
+					<field name="fecha" />
+					<field name="is_resuelta" />
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="act_queja">
+			<field name="name">Quejas</field>
+			<field name="res_model">queja</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="paqueteria" name="Paqueteria Express"	action="act_queja" />
+		<menuitem name="Quejas" id="quejas_submenu" parent="paqueteria"
+			sequence="100" action="act_queja" />
+		<menuitem name="Ver Quejas" id="ver_quejas_submenu"
+			parent="quejas_submenu" sequence="110" action="act_queja" />
+	</data>
+</openerp>

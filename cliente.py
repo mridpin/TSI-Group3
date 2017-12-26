@@ -35,6 +35,7 @@ class cliente(osv.Model):
             'telefono':fields.char('Telefono', size=20, required=True, readonly=False),
             'puntos':fields.integer("Puntos"),
             'paquetes_enviados':fields.one2many('paquete', 'remitente', 'Paquetes Enviados'),
-            'paquetes_recebidos':fields.one2many('paquete', 'destinatario', 'Paquetes Recibidos')
+            'paquetes_recebidos':fields.one2many('paquete', 'destinatario', 'Paquetes Recibidos'),
+            'quejas':fields.one2many('queja', 'cliente', 'Quejas'),
         }
 cliente()

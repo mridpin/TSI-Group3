@@ -1,4 +1,3 @@
-
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
@@ -21,11 +20,17 @@
 #
 ##############################################################################
 
-import persona
-import articulo
-import direccion
-import paquete
-import empleado
-import cliente
-import queja
-import eventoqueja
+from osv import osv
+from osv import fields
+
+class eventoqueja(osv.Model):
+
+    _name = 'eventoqueja'
+    _description = 'Evento de una queja'
+ 
+    _columns = {
+            'name':fields.char('ID Evento', size=8, required=True),
+            'mensaje':fields.text('Mensaje'),
+            'queja':fields.many2one('queja', 'ID Queja'),
+        }
+eventoqueja()

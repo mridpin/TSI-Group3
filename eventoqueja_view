@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_paqueteria_eventoqueja_tree_view">
+			<field name="name">view_paqueteria_queja_tree_view</field>
+			<field name="model">eventoqueja</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Eventos Queja">
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_paqueteria_eventoqueja_form_view">
+			<field name="name">view_paqueteria_eventoqueja_form_view</field>
+			<field name="model">eventoqueja</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Eventos Queja">
+					<field name="name" />
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="act_eventoqueja">
+			<field name="name">Eventos Queja</field>
+			<field name="res_model">eventoqueja</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="paqueteria" name="Paqueteria Express"	action="act_eventoqueja" />
+		
+	</data>
+</openerp>

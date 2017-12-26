@@ -30,12 +30,24 @@
 				</form>
 			</field>
 		</record>
+		
+		<record model="ir.ui.view" id="view_paqueteria_queja_graph_view">
+			<field name="name">view_paqueteria_queja_graph_view</field>
+			<field name="model">queja</field>
+			<field name="type">graph</field>
+			<field name="arch" type="xml">
+				<graph string="Quejas resueltas" type="pie">				
+					<field name="name" />
+					<field name="is_resuelta" />
+				</graph>
+			</field>
+		</record>
 
 		<record model="ir.actions.act_window" id="act_queja">
 			<field name="name">Quejas</field>
 			<field name="res_model">queja</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
+			<field name="view_mode">tree,form,graph</field>
 		</record>
 
 		<menuitem id="paqueteria" name="Paqueteria Express"	action="act_queja" />

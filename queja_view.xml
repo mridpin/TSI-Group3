@@ -10,6 +10,7 @@
 					<field name="name" />
 					<field name="fecha" />
 					<field name="cliente" />
+					<field name="paquete" />
 				</tree>
 			</field>
 		</record>
@@ -22,6 +23,7 @@
 				<form string="Quejas">
 					<field name="name" />
 					<field name="cliente" />
+					<field name="paquete" />
 					<field name="descripcion" />
 					<field name="fecha" />
 					<field name="is_resuelta" />

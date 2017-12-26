@@ -34,6 +34,7 @@ class ClassName(osv.Model):
             'fecha':fields.date('Fecha'),
             'is_resuelta':fields.boolean('Resuelta'),
             'cliente':fields.many2one('cliente', 'Cliente', required=True),
+            'paquete':fields.many2one('paquete', 'Paquete', required=True),
             
         }
 ClassName()

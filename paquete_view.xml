@@ -8,11 +8,11 @@
 			<field name="arch" type="xml">
 				<calendar string="Paquete" color="isUrgente" date_start="fechaEntrega">
 					<field name="name" />
-					<field name="tarifa"/>
+					<field name="tarifa" />
 				</calendar>
 			</field>
 		</record>
-		
+
 		<record model="ir.ui.view" id="view_manage_paquete_search">
 			<field name="name">view_manage_paquete_search</field>
 			<field name="model">paquete</field>
@@ -28,20 +28,20 @@
 				</search>
 			</field>
 		</record>
-		
-		
+
+
 		<record model="ir.ui.view" id="view_paqueteria_paquete_form">
 			<field name="name">view_paqueteria_paquete_form</field>
 			<field name="model">paquete</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Paquetes">
-					<field name ="name" />
+					<field name="name" />
 					<field name="tarifa" />
 					<field name="fechaEntrega" />
 					<field name="isUrgente" />
 					<field name="remitente" />
-					<field name="destinatario" />					
+					<field name="destinatario" />
 					<field name="isEntregado" />
 					<field name="isAdminPublica" />
 					<field name="isInternacional" />
@@ -51,11 +51,15 @@
 					<field name="isAsegurado" />
 					<field name="articulos" colspan="4" mode="tree">
 						<tree>
-							<field name="name"/>
-							<field name="peso"/>
-							<field name="valor"/>
+							<field name="name" />
+							<field name="peso" />
+							<field name="valor" />
 						</tree>
 					</field>
+					<newline></newline>
+					<separator></separator>
+					<button name="eliminarArticulos" string="Quitar articulos"
+						type="object"></button>
 				</form>
 			</field>
 		</record>
@@ -70,14 +74,14 @@
 					<field name="fechaEntrega" />
 					<field name="isUrgente" />
 					<field name="remitente" />
-					<field name="destinatario" />					
+					<field name="destinatario" />
 					<field name="isEntregado" />
 					<field name="isAdminPublica" />
 					<field name="isInternacional" />
 					<field name="dimension" />
 					<field name="peso" />
 					<field name="valor" />
-					<field name="isAsegurado" />					
+					<field name="isAsegurado" />
 				</tree>
 			</field>
 		</record>

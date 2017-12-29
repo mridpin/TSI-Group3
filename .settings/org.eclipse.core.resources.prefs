@@ -3,6 +3,7 @@ encoding/__init__.py=utf-8
 encoding/__openerp__.py=utf-8
 encoding/articulo.py=utf-8
 encoding/cliente.py=utf-8
+encoding/declaracionaduana.py=utf-8
 encoding/direccion.py=utf-8
 encoding/empleado.py=utf-8
 encoding/eventoqueja.py=utf-8

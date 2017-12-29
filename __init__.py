@@ -29,3 +29,4 @@ import empleado
 import cliente
 import queja
 import eventoqueja
+import declaracionaduana

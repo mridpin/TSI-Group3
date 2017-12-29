@@ -27,6 +27,7 @@ class paquete(osv.Model):
 
     _name = 'paquete'
     _description = 'Paquete con el que trabaja la empresa'
+    
  
     def eliminarArticulos(self,cr,uid,ids,context=None):
         res = self.write(cr,uid,ids,{'articulos':[ (5, ) ]}, context=None)

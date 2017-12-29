@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+	<data>
+
+		<!-- Declaración del workflow -->
+		<record id="wkf_paquete" model="workflow">
+			<field name="name">TSI-Group3.wkf_paquete</field>
+			<field name="osv">paquete</field>
+			<field name="on_create">True</field>
+		</record>
+
+		<!-- Declaración de nodos -->
+		<record id="act_paquete_iniciado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_paquete" />
+			<field name="flow_start">True</field>
+			<field name="name">Iniciado</field>
+			<field name="action">function</field>
+			<field name="kind">dummy</field>
+		</record>
+
+		<record id="act_paquete_aceptado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_paquete" />
+			<field name="name">Aceptado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'aceptado'})</field>
+		</record>
+		
+		<record id="act_paquete_enviado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_paquete" />
+			<field name="name">Enviado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'enviado'})</field>
+		</record>
+
+		<record id="act_paquete_entregado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_paquete" />
+			<field name="name">Entregado</field>
+			<field name="flow_stop">True</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'entregado'})</field>
+		</record>
+		
+		<record id="act_paquete_devuelto" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_paquete" />
+			<field name="name">Devuelto</field>
+			<field name="flow_stop">True</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'devuelto'})</field>
+		</record>
+		<record id="act_paquete_cancelado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_paquete" />
+			<field name="name">Cancelado</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'cancelado'})</field>
+		</record>
+
+		<!-- Declaración de las transiciones -->
+		<record id="trans_iniciado_aceptado" model="workflow.transition">
+			<field name="act_from" ref="act_paquete_iniciado" />
+			<field name="act_to" ref="act_paquete_aceptado" />
+			<field name="signal">aceptar</field>
+		</record>
+		
+		<record id="trans_aceptado_enviado" model="workflow.transition">
+			<field name="act_from" ref="act_paquete_aceptado" />
+			<field name="act_to" ref="act_paquete_enviado" />
+			<field name="signal">enviado</field>
+		</record>
+		
+		<record id="trans_enviado_entregado" model="workflow.transition">
+			<field name="act_from" ref="act_paquete_enviado" />
+			<field name="act_to" ref="act_paquete_entregado" />
+			<field name="signal">entregado</field>
+		</record>
+		
+		<record id="trans_enviado_cancelado" model="workflow.transition">
+			<field name="act_from" ref="act_paquete_enviado" />
+			<field name="act_to" ref="act_paquete_cancelado" />
+			<field name="signal">cancelar</field>
+		</record>
+		
+		<record id="trans_aceptado_cancelado" model="workflow.transition">
+			<field name="act_from" ref="act_paquete_aceptado" />
+			<field name="act_to" ref="act_paquete_cancelado" />
+			<field name="signal">cancelar</field>
+		</record>
+		
+		<record id="trans_cancelado_devuelto" model="workflow.transition">
+			<field name="act_from" ref="act_paquete_cancelado" />
+			<field name="act_to" ref="act_paquete_devuelto" />
+			<field name="signal">devolver</field>
+		</record>
+
+
+
+
+	</data>
+</openerp>

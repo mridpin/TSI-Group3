@@ -47,7 +47,7 @@
 					<field name="isInternacional" />
 					<field name="dimension" />
 					<field name="peso" />
-					<field name="valor" />
+					<field name="valor"/>
 					<field name="isAsegurado" />
 					<field name="articulos" colspan="4" mode="tree">
 						<tree>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="view_paqueteria_declaracionaduana_form">
+			<field name="name">view_paqueteria_declaracionaduana_form</field>
+			<field name="model">declaracionaduana</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Declaraciones">
+					<field name="declaracionAduana" />
+					<field name="tasaAduana" />
+					<field name="articulo" />
+				</form>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="view_paqueteria_declaracionaduana_tree">
+			<field name="name">view_paqueteria_declaracionaduana_tree</field>
+			<field name="model">declaracionaduana</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="declaracionAduana" />
+					<field name="tasaAduana" />
+					<field name="articulo" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record id="act_declaracionaduana" model="ir.actions.act_window">
+			<field name="name">Declaraciones</field>
+			<field name="res_model">declaracionaduana</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+
+		<menuitem id="paqueteria" name="Paqueteria Express" action="act_declaracionaduana" />
+		<menuitem name="Declaraciones" id="declaraciones_submenu"
+			parent="paqueteria" sequence="110" action="act_declaracionaduana" />
+		<menuitem name="Ver Declaraciones" id="ver_declaraciones_submenu"
+			parent="declaraciones_submenu" sequence="110" action="act_declaracionaduana" />
+
+	</data>
+</openerp> 

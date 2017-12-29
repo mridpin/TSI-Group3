@@ -65,13 +65,13 @@
 		<record id="trans_aceptado_enviado" model="workflow.transition">
 			<field name="act_from" ref="act_paquete_aceptado" />
 			<field name="act_to" ref="act_paquete_enviado" />
-			<field name="signal">enviado</field>
+			<field name="signal">enviar</field>
 		</record>
 		
 		<record id="trans_enviado_entregado" model="workflow.transition">
 			<field name="act_from" ref="act_paquete_enviado" />
 			<field name="act_to" ref="act_paquete_entregado" />
-			<field name="signal">entregado</field>
+			<field name="signal">entregar</field>
 		</record>
 		
 		<record id="trans_enviado_cancelado" model="workflow.transition">

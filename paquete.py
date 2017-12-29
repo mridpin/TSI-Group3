@@ -52,8 +52,18 @@ class paquete(osv.Model):
             'peso':fields.integer('Peso', readonly=True),
             #Aclaración: valor es un campo funcional, calculado a partir de los artículos. Se ha como integer de manera temporal.
             'valor':fields.integer('Valor', readonly=True),
+            'state':fields.selection([
+            ('iniciado','Iniciado'),
+            ('aceptado','Aceptado'),
+            ('enviado','Enviado'),
+            ('cancelado','Cancelado'),
+            ('devuelto','Devuelto al Remitente'),
+            ('entregado','Entregado'),
+             ],    'Estado', select=True, readonly=True),
             'isAsegurado':fields.boolean('Asegurado'),
             'articulos':fields.many2many('articulo', 'paquete_articulo_rel', 'id_paquete', 'id_articulo', 'Artículos incluídos', required=True),
             'quejas':fields.many2one('queja', 'Quejas'),
         }
+    
+    _defaults =  {'state':'iniciado', }
 paquete()

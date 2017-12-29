@@ -60,6 +60,16 @@
 					<separator></separator>
 					<button name="eliminarArticulos" string="Quitar articulos"
 						type="object"></button>
+					<separator string="Worfklow" colspan="4" />
+					<field name="state" widget="statusbar" statusbar_visible="iniciado,aceptado,enviado,entregado,cancelado,devuelto" statusbar_colors='{"iniciado":"orange","aceptado": "blue","enviado": "blue","cancelado": "red","devuelto":"red","entregado":"green"}'/> 
+					<button name="aceptar" states="iniciado" string="Aceptar" colspan="1" icon="gtk-ok" />
+					<button name="cancelar" states="aceptado" string="Cancelar" colspan="1" />	
+					<button name="cancelar" states="enviado" string="Cancelar" colspan="1" />		
+					<button name="enviar" states="aceptado" string="Enviar" colspan="1" icon="gtk-apply" />	
+					<button name="entregar" states="enviado" string="Entregar" colspan="1" icon="gtk-apply" />	
+					<button name="devolver" states="cancelado" string="Devolver al Remitente" colspan="1" />	
+						
+						
 				</form>
 			</field>
 		</record>
@@ -82,6 +92,7 @@
 					<field name="peso" />
 					<field name="valor" />
 					<field name="isAsegurado" />
+					<field name="state" />
 				</tree>
 			</field>
 		</record>

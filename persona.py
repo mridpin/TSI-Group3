@@ -28,8 +28,14 @@ class persona(osv.Model):
 
     _name = 'persona'
     _description = 'Persona generica'
+    
+    def create(self, cr, uid, vals, context=None):
+        vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'persona.code')
+        
+        return super(persona, self).create(cr, uid, vals, context=context)
  
     _columns = {
-        'name':fields.char('ID', size=64, required=True, readonly=False),
+        'name':fields.char('ID', size=64, readonly=True),
         }
+    
 persona()

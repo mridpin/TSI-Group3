@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+	<data>
+
+		<!-- Declaración del workflow -->
+		<record id="wkf_queja" model="workflow">
+			<field name="name">TSI-Group3.wkf_queja</field>
+			<field name="osv">queja</field>
+			<field name="on_create">True</field>
+		</record>
+
+		<!-- Declaración de nodos -->
+		<record id="act_queja_iniciado" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_queja" />
+			<field name="flow_start">True</field>
+			<field name="name">Iniciado</field>
+			<field name="action">function</field>
+			<field name="kind">dummy</field>
+		</record>
+
+		<record id="act_queja_abierta" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_queja" />
+			<field name="name">Abierta</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'abierta'})</field>
+		</record>
+
+		<record id="act_queja_resuelta" model="workflow.activity">
+			<field name="wkf_id" ref="wkf_queja" />
+			<field name="name">Resuelta</field>
+			<field name="flow_stop">True</field>
+			<field name="kind">function</field>
+			<field name="action">write({'state':'resuelta'})</field>
+		</record>
+
+		<!-- Declaración de las transiciones -->
+		<record id="trans_iniciado_abierta" model="workflow.transition">
+			<field name="act_from" ref="act_queja_iniciado" />
+			<field name="act_to" ref="act_queja_abierta" />
+			<field name="signal">abrir</field>
+		</record>
+		
+		<record id="trans_abierta_resuelta" model="workflow.transition">
+			<field name="act_from" ref="act_queja_abierta" />
+			<field name="act_to" ref="act_queja_resuelta" />
+			<field name="signal">resuelta</field>
+		</record>
+
+
+	</data>
+</openerp>

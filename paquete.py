@@ -30,8 +30,14 @@ class paquete(osv.Model):
     
  
     def eliminarArticulos(self,cr,uid,ids,context=None):
-        res = self.write(cr,uid,ids,{'articulos':[ (5, ) ]}, context=None)
-        
+        res = self.write(cr,uid,ids,{'articulos':[ (5, ) ]}, context=None)        
+        return res
+    
+    def _get_valor (self, cr, uid, ids, field_name, arg, context=None):
+        res = {}
+        for paquete in self.browse(cr, uid, ids):
+            valor = sum([articulo.valor for articulo in paquete.articulos])
+            res[paquete.id] = valor
         return res
  
  
@@ -49,7 +55,11 @@ class paquete(osv.Model):
             'dimension':fields.integer('Volumen', readonly=False),
             'peso':fields.integer('Peso', readonly=True),
             #Aclaración: valor es un campo funcional, calculado a partir de los artículos. Se ha como integer de manera temporal.
-            'valor':fields.integer('Valor', readonly=True),
+            'valor':fields.function(_get_valor, 
+                                    type='float',
+                                    method=True,
+                                    store=True,
+                                    string='Valor'),
             'state':fields.selection([
             ('iniciado','Iniciado'),
             ('aceptado','Aceptado'),

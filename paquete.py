@@ -24,7 +24,18 @@ from osv import osv
 from osv import fields
 
 class paquete(osv.Model):
-
+    
+    # Tarifa base para un articulo de 1 litro x 1 kilo
+    TARIFA_BASE = 2.0
+    # Incremento por estar asegurado
+    INCREMENTO_SEGURO = 0.10
+    # Incremento por envio urgente
+    INCREMENTO_URGENTE = 0.20
+    # Incremento por envio internacional
+    INCREMENTO_INTERNACIONAL = 0.25
+    # Incremento por ser publico (en este caso es un descuento)
+    INCREMENTO_ADMIN_PUBLICA = -0.25
+    
     _name = 'paquete'
     _description = 'Paquete con el que trabaja la empresa'
     
@@ -47,11 +58,35 @@ class paquete(osv.Model):
             res[paquete.id] = peso
         return res
     
+    def _calcular_tarifa (self, cr, uid, ids, field_name, arg, context=None):
+        res = {}
+        for paquete in self.browse(cr, uid, ids):
+            # calculamos la media entre peso y volumen
+            tarifa = (paquete.dimension + paquete.peso) / 2
+            tarifa *= self.TARIFA_BASE
+            # Sumamos todos los incrementos
+            incrementoTotal = 0.0
+            if paquete.isUrgente == True:
+                incrementoTotal += self.INCREMENTO_URGENTE
+            if paquete.isInternacional == True:
+                incrementoTotal += self.INCREMENTO_INTERNACIONAL  
+            if paquete.isAsegurado == True:
+                incrementoTotal += self.INCREMENTO_SEGURO
+            if paquete.isAdminPublica == True:
+                incrementoTotal += self.INCREMENTO_ADMIN_PUBLICA
+            #Aplicamos el incremento total a la tarifa base
+            tarifa += tarifa * incrementoTotal
+            res[paquete.id] = tarifa                
+        return res
+    
     _columns = {
             #Aclaración: id_paquete es un campo autonumérico. Se ha definido como char de manera temporal.
             'name':fields.char('ID Paquete', size=64, required=True, readonly=False),
-            #Aclaración: tarifa es un campo funcional, calculado a partir de otros parámetros. Se ha como float de manera temporal.
-            'tarifa':fields.float('Tarifa', readonly=True),
+            'tarifa':fields.function(_calcular_tarifa, 
+                                    type='float',
+                                    method=True,
+                                    store=True,
+                                    string='Tarifa'),
             'fechaEntrega':fields.datetime('Fecha de entrega', autodate=True),
             'remitente':fields.many2one('cliente', 'Remitente', required=True),
             'destinatario':fields.many2one('cliente', 'Destinatario', required=True),

@@ -44,8 +44,6 @@ class paquete(osv.Model):
             'remitente':fields.many2one('cliente', 'Remitente', required=True),
             'destinatario':fields.many2one('cliente', 'Destinatario', required=True),
             'isUrgente':fields.boolean('Urgente'),
-            #Aclaración: tarifa es un campo funcional, calculado a partir de la fecha de entrega. Se ha como booleano de manera temporal.
-            'isEntregado':fields.boolean('Entregado', readonly=True),
             'isAdminPublica':fields.boolean('Administración pública'),
             'isInternacional':fields.boolean('Internacional'),
             'dimension':fields.integer('Volumen', readonly=False),

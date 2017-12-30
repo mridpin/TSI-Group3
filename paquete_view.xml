@@ -42,7 +42,6 @@
 					<field name="isUrgente" />
 					<field name="remitente" />
 					<field name="destinatario" />
-					<field name="isEntregado" />
 					<field name="isAdminPublica" />
 					<field name="isInternacional" />
 					<field name="dimension" />
@@ -85,7 +84,6 @@
 					<field name="isUrgente" />
 					<field name="remitente" />
 					<field name="destinatario" />
-					<field name="isEntregado" />
 					<field name="isAdminPublica" />
 					<field name="isInternacional" />
 					<field name="dimension" />

@@ -28,6 +28,21 @@ class articulo(osv.Model):
     
     _name = 'articulo'
     _description = 'Articulo de un paquete'
+    
+    
+    def _check_valor(self, cr, uid, ids):
+        # No puede ser un valor negatico
+        for articulo in self.browse(cr, uid, ids):
+            if articulo.valor <= 0:
+                return False
+        return True
+    
+    def _check_peso(self, cr, uid, ids):
+        # No puede ser un valor negatico
+        for articulo in self.browse(cr, uid, ids):
+            if articulo.peso <= 0:
+                return False
+        return True
  
     _columns = {
             'name':fields.char('ID Articulo', size=64, required=True, readonly=False),
@@ -38,4 +53,8 @@ class articulo(osv.Model):
             'paquetes':fields.many2many('paquete', 'paquete_articulo_rel', 'id_articulo', 'id_paquete','Artículos incluídos', required=True),
             'declaracionAduana':fields.many2one('declaracionaduana', 'Declaracion Aduana'),
         }
+    
+    _constraints = [(_check_valor, 'VALOR INCORRECTO, el valor no puede ser menor o igual a 0' , [ 'valor'
+]),(_check_peso, 'VALOR INCORRECTO, el peso no puede ser menor o igual a 0' , [ 'peso'
+])] 
 articulo()

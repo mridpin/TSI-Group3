@@ -12,8 +12,8 @@
 				</search>
 			</field>
 		</record>
-		
-		
+
+
 		<record model="ir.ui.view" id="view_paqueteria_cliente_form">
 			<field name="name">view_paqueteria_cliente_form</field>
 			<field name="model">cliente</field>
@@ -24,27 +24,27 @@
 					<field name="email" />
 					<field name="telefono" />
 					<field name="puntos" />
-					<field name="direccion_ids"/>
+					<field name="direccion_ids" />
 					<field name="paquetes_enviados" colspan="2" mode="tree">
 						<tree string="tree_string">
-							<field name="name"/>
+							<field name="name" />
 						</tree>
 					</field>
 					<field name="paquetes_recebidos" colspan="2" mode="tree">
 						<tree string="tree_string">
-							<field name="name"/>
+							<field name="name" />
 						</tree>
 					</field>
 					<field name="quejas" colspan="2" mode="tree">
 						<tree string="tree_string">
-							<field name="name"/>
+							<field name="name" />
 						</tree>
-					</field>					
+					</field>
 				</form>
 			</field>
 		</record>
-		
-		
+
+
 		<record model="ir.ui.view" id="view_paqueteria_cliente_tree_view">
 			<field name="name">view_paqueteria_cliente_tree</field>
 			<field name="model">cliente</field>
@@ -55,8 +55,20 @@
 					<field name="email" />
 					<field name="telefono" />
 					<field name="puntos" />
-					<field name="direccion_ids"/>
+					<field name="direccion_ids" />
 				</tree>
+			</field>
+		</record>
+
+		<record id="view_cliente_graph" model="ir.ui.view">
+			<field name="name">view_cliente_graph</field>
+			<field name="model">cliente</field>
+			<field name="type">graph</field>
+			<field name="arch" type="xml">
+				<graph type="bar" string="Cantidad de puntos por cliente">
+					<field name="name" />
+					<field name="puntos" />
+				</graph>
 			</field>
 		</record>
 
@@ -65,11 +77,11 @@
 			<field name="name">Clientes</field>
 			<field name="res_model">cliente</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
+			<field name="view_mode">tree,form,graph</field>
 			<field name="search_view_id" ref="view_manage_cliente_search" />
 		</record>
 
-		
+
 		<menuitem id="paqueteria" name="Paqueteria Express" action="act_cliente" />
 		<menuitem name="Clientes" id="clientes_submenu" parent="paqueteria"
 			sequence="110" action="act_cliente" />

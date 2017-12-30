@@ -39,8 +39,14 @@ class paquete(osv.Model):
             valor = sum([articulo.valor for articulo in paquete.articulos])
             res[paquete.id] = valor
         return res
- 
- 
+    
+    def _get_peso (self, cr, uid, ids, field_name, arg, context=None):
+        res = {}
+        for paquete in self.browse(cr, uid, ids):
+            peso = sum([articulo.peso for articulo in paquete.articulos])
+            res[paquete.id] = peso
+        return res
+    
     _columns = {
             #Aclaración: id_paquete es un campo autonumérico. Se ha definido como char de manera temporal.
             'name':fields.char('ID Paquete', size=64, required=True, readonly=False),
@@ -53,8 +59,11 @@ class paquete(osv.Model):
             'isAdminPublica':fields.boolean('Administración pública'),
             'isInternacional':fields.boolean('Internacional'),
             'dimension':fields.integer('Volumen', readonly=False),
-            'peso':fields.integer('Peso', readonly=True),
-            #Aclaración: valor es un campo funcional, calculado a partir de los artículos. Se ha como integer de manera temporal.
+            'peso':fields.function(_get_peso, 
+                                    type='float',
+                                    method=True,
+                                    store=True,
+                                    string='Peso'),
             'valor':fields.function(_get_valor, 
                                     type='float',
                                     method=True,

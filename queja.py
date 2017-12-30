@@ -32,9 +32,15 @@ class ClassName(osv.Model):
             'name':fields.char('ID Queja', size=8, required=True),
             'descripcion':fields.text('Descripción'),
             'fecha':fields.date('Fecha'),
-            'is_resuelta':fields.boolean('Resuelta'),
             'cliente':fields.many2one('cliente', 'Cliente', required=True),
             'paquete':fields.many2one('paquete', 'Paquete', required=True),
+            'state':fields.selection([
+            ('iniciado','Iniciada'),
+            ('abierta','Abierta'),
+            ('resuelta','Resuelta'),
+             ],    'Estado', select=True, readonly=True),
             'eventosqueja':fields.one2many('eventoqueja', 'queja', 'Eventos Queja'),            
         }
+    
+    _defaults =  {'state':'iniciado', }
 ClassName()

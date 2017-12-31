@@ -34,7 +34,7 @@
     "init_xml": [],
     'data' : ['persona_view.xml','articulo_view.xml', 'paquete_view.xml', 'cliente_view.xml','empleado_view.xml','direccion_view.xml','queja_view.xml','eventoqueja_view.xml','workflow/paquete_workflow.xml','workflow/queja_workflow.xml'],
     'update_xml': [],
-    'demo_xml': [],
+    'demo_xml': ['paqueteria_demo.xml'],
     'installable': True,
     'active': False,
 #    'certificate': 'certificate',

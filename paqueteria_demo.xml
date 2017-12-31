@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<openerp>
+	<data noupdate="1">
+	
+		<record id="direccion1" model="direccion">
+			<field name="name">1</field>
+			<field name="calle">calle false</field>
+			<field name="codigoPostal">1234</field>
+			 <field name="pais" ref="base.es"/>
+		</record>
+		
+		<record id="direccion2" model="direccion">
+			<field name="name">2</field>
+			<field name="calle">Calle Triangulo</field>
+			<field name="codigoPostal">410100</field>
+			 <field name="pais" ref="base.es"/>
+		</record>
+		
+		<record id="direccion3" model="direccion">
+			<field name="name">3</field>
+			<field name="calle">Heritage Oaks Drive</field>
+			<field name="codigoPostal">94507</field>
+			 <field name="pais" ref="base.us"/>
+		</record>		
+		
+		<record id="articulo1" model="articulo">
+			<field name="name">1</field>
+			<field name="descripcion">iPhone X</field>
+			<field name="peso">0.3</field>
+			<field name="valor">1000</field>
+			<field name="isComercial">True</field>
+		</record>
+		
+		<record id="articulo2" model="articulo">
+			<field name="name">2</field>
+			<field name="descripcion">Dulces Caseros</field>
+			<field name="peso">0.5</field>
+			<field name="valor">5</field>
+		</record>
+		
+		<record id="articulo3" model="articulo">
+			<field name="name">3</field>
+			<field name="descripcion">Ordenador Portatil</field>
+			<field name="peso">2</field>
+			<field name="valor">500</field>
+			<field name="isComercial">True</field>
+		</record>
+	
+		<record id="cliente1" model="cliente">
+			<field name="name">1</field>
+			<field name="email">victoramartinelli@gmail.com</field>
+			<field name="telefono">954348719</field>
+			<field name="puntos">1000</field>
+			<field name="direccion_ids" eval="[(6, 0, [direccion1, ])]"></field>
+		</record>
+		
+		<record id="cliente2" model="cliente">
+			<field name="name">5</field>
+			<field name="email">email@gmail.com</field>
+			<field name="telefono">523234234</field>
+			<field name="puntos">20</field>
+			<field name="direccion_ids" eval="[(6, 0, [direccion2, ])]"></field>
+		</record>
+		
+		<record id="empleado1" model="empleado">
+			<field name="name">2</field>
+			<field name="idEmpleado">1</field>
+			<field name="isManager">True</field>
+			<field name="oficina">Recursos Humanos</field>
+		</record>
+		
+		<record id="empleado2" model="empleado">
+			<field name="name">3</field>
+			<field name="idEmpleado">2</field>
+			<field name="isGestorQuejas">True</field>
+			<field name="oficina">Atencion al Cliente</field>
+		</record>
+		
+		<record id="empleado3" model="empleado">
+			<field name="name">4</field>
+			<field name="idEmpleado">3</field>
+			<field name="oficina">Reparto</field>
+		</record>
+		
+		<record id="paquete1" model="paquete">
+			<field name="name">1</field>
+			<field name="fechaEntrega">2018-01-20 12:00:00</field>
+			<field name="codigoPostal">1234</field>
+			<field name="remitente" ref="cliente1"/>
+			<field name="destinatario" ref="cliente2"/>
+			<field name="isUrgente">True</field>
+			<field name="dimension">20</field>
+			<field name="state">aceptado</field>
+			<field name="articulos" eval="[(6, 0, [articulo1, ])]"></field>
+		</record>
+		
+	</data>
+</openerp>

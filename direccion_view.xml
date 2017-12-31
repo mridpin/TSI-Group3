@@ -8,6 +8,7 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Direccion">
+					<field name="name"/>
 					<field name="calle" />
 					<field name="codigoPostal" />
 					<field name="pais" />
@@ -23,6 +24,7 @@
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
+					<field name="name"/>
 					<field name="calle" />
 					<field name="codigoPostal" />
 					<field name="pais" />

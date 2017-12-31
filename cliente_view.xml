@@ -24,22 +24,40 @@
 					<field name="email" />
 					<field name="telefono" />
 					<field name="puntos" />
-					<field name="direccion_ids" />
-					<field name="paquetes_enviados" colspan="2" mode="tree">
-						<tree string="tree_string">
-							<field name="name" />
-						</tree>
-					</field>
-					<field name="paquetes_recebidos" colspan="2" mode="tree">
-						<tree string="tree_string">
-							<field name="name" />
-						</tree>
-					</field>
-					<field name="quejas" colspan="2" mode="tree">
-						<tree string="tree_string">
-							<field name="name" />
-						</tree>
-					</field>
+					<group colspan="1"></group>
+					<notebook colspan="3">
+						<page string="Direcciones">
+							<field name="direccion_ids" colspan="2" nolabel="1" mode="tree">
+								<tree string="tree_string">
+									<field name="name"/>
+									<field name="calle" />
+									<field name="codigoPostal" />
+									<field name="pais" />
+								</tree>
+							</field>
+						</page>
+						<page string="Paquetes Enviados">
+							<field name="paquetes_enviados" colspan="2" nolabel="1" mode="tree">
+								<tree string="tree_string">
+									<field name="name" />
+								</tree>
+							</field>
+						</page>
+						<page string="Paquetes Recibidos">
+							<field name="paquetes_recebidos" colspan="2" nolabel="1" mode="tree">
+								<tree string="tree_string">
+									<field name="name" />
+								</tree>
+							</field>
+						</page>
+						<page string="Quejas">
+							<field name="quejas" colspan="2" nolabel="1" mode="tree">
+								<tree string="tree_string">
+									<field name="name" />
+								</tree>
+							</field>
+						</page>
+					</notebook>
 				</form>
 			</field>
 		</record>

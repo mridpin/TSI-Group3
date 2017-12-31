@@ -31,11 +31,18 @@
 			<field name="isComercial">True</field>
 		</record>
 		
+		<record id="declaracionAduana1" model="declaracionaduana">
+			<field name="name">1</field>
+			<field name="declaracionAduana">Dulces Caseros</field>
+			<field name="tasaAduana">20</field>
+		</record>
+		
 		<record id="articulo2" model="articulo">
 			<field name="name">2</field>
 			<field name="descripcion">Dulces Caseros</field>
 			<field name="peso">0.5</field>
 			<field name="valor">5</field>
+			<field name="declaracionAduana" ref="declaracionAduana1"/>
 		</record>
 		
 		<record id="articulo3" model="articulo">
@@ -60,6 +67,14 @@
 			<field name="telefono">523234234</field>
 			<field name="puntos">20</field>
 			<field name="direccion_ids" eval="[(6, 0, [direccion2, ])]"></field>
+		</record>
+		
+		<record id="cliente3" model="cliente">
+			<field name="name">6</field>
+			<field name="email">correo@gmail.com</field>
+			<field name="telefono">235235</field>
+			<field name="puntos">80</field>
+			<field name="direccion_ids" eval="[(6, 0, [direccion3, ])]"></field>
 		</record>
 		
 		<record id="empleado1" model="empleado">
@@ -93,6 +108,35 @@
 			<field name="state">aceptado</field>
 			<field name="articulos" eval="[(6, 0, [articulo1, ])]"></field>
 		</record>
+		
+		<record id="paquete2" model="paquete">
+			<field name="name">2</field>
+			<field name="fechaEntrega">2017-09-10 12:00:00</field>
+			<field name="codigoPostal">214412</field>
+			<field name="remitente" ref="cliente1"/>
+			<field name="destinatario" ref="cliente3"/>
+			<field name="dimension">10</field>
+			<field name="state">entregado</field>
+			<field name="isAsegurado">True</field>
+			<field name="isInternacional">True</field>
+			<field name="articulos" eval="[(6, 0, [articulo2, ])]"></field>
+		</record>
+		
+		<record id="queja1" model="queja">
+			<field name="name">1</field>
+			<field name="descripcion">Mala atencion al cliente</field>
+			<field name="fecha">2017-12-31 12:00:00</field>
+			<field name="cliente" ref="cliente1"/>
+			<field name="paquete" ref="paquete1"/>
+			<field name="state">abierta</field>
+		</record>
+		
+		<record id="eventoqueja1" model="eventoqueja">
+			<field name="name">1</field>
+			<field name="mensaje">El empleado fue muy desagradable</field>
+			<field name="queja" ref="queja1"/>
+			<field name="empleado" ref="empleado2"/>
+		</record>	
 		
 	</data>
 </openerp>

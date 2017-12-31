@@ -8,6 +8,7 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Declaraciones">
+					<field name="name" />
 					<field name="declaracionAduana" />
 					<field name="tasaAduana" />
 					<field name="articulo" />
@@ -22,6 +23,7 @@
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="tree_string">
+					<field name="name" />
 					<field name="declaracionAduana" />
 					<field name="tasaAduana" />
 					<field name="articulo" />

@@ -30,8 +30,9 @@ class declaracionaduana(osv.Model):
     _description = 'Declaracion de aduana de un articluo'
  
     _columns = {
+            'name':fields.char('ID', size=64, required=True, readonly=False),
             'declaracionAduana':fields.char('Declaracion aduana', size=128, required=True, readonly=False),
             'tasaAduana':fields.integer('Tasa aduana %', required=True, size=2),
-            'articulo':fields.many2one('articulo', 'Articulo', required=True),
+            'articulo':fields.many2one('articulo', 'Articulo'),
         }
 declaracionaduana()

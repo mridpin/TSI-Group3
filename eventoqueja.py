@@ -22,7 +22,6 @@
 
 from osv import osv
 from osv import fields
-from cups import require
 
 class eventoqueja(osv.Model):
 

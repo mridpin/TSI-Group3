@@ -22,6 +22,16 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Quejas">
+				
+				<separator string="Estado" colspan="4" />
+					<field name="state" nolabel="1" widget="statusbar" statusbar_visible="iniciado,abierta,resuelta" statusbar_colors='{"iniciado":"orange","aceptada": "blue","resuelta": "green"}'/> 
+					<button name="abrir" states="iniciado" string="Aceptar" colspan="1" icon="gtk-ok" />
+					<button name="resuelta" states="abierta" string="Resuelta" colspan="1" icon="gtk-apply"/>	
+					
+					<separator></separator>
+					<separator></separator>
+					<separator></separator>
+				
 					<field name="name" />
 					<field name="cliente" />
 					<field name="paquete" />
@@ -32,11 +42,6 @@
 							<field name="name"/>
 						</tree>
 					</field>
-					
-					<separator string="Worfklow" colspan="4" />
-					<field name="state" widget="statusbar" statusbar_visible="iniciado,abierta,resuelta" statusbar_colors='{"iniciado":"orange","aceptada": "blue","resuelta": "green"}'/> 
-					<button name="abrir" states="iniciado" string="Aceptar" colspan="1" icon="gtk-ok" />
-					<button name="resuelta" states="abierta" string="Resuelta" colspan="1" icon="gtk-apply"/>	
 					
 				</form>
 			</field>

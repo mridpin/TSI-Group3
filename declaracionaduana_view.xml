@@ -39,6 +39,18 @@
 			<field name="view_mode">tree,form</field>
 		</record>
 
+		<!-- Record for your seuqence type -->
+		<record id="paqueteria_declaracionaduana_id" model="ir.sequence.type">
+			<field name="name">paqueteria_declaracionaduana_id</field>
+			<field name="code">declaracionaduana.code</field>   <!-- Unique sequence code. -->
+		</record>
+
+		<!-- Record for Sequence -->
+		<record id="declaracionaduana_reg_sequence" model="ir.sequence">
+			<field name="name">Declaracionaduana Unique ID</field>
+			<field name="code">declaracionaduana.code</field>  <!-- Apply the same you applied above -->
+			<field name="implementation">no_gap</field>
+		</record>
 
 		<menuitem id="paqueteria" name="Paqueteria Express" action="act_declaracionaduana" />
 		<menuitem name="Declaraciones" id="declaraciones_submenu"

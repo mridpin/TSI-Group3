@@ -39,6 +39,9 @@ class paquete(osv.Model):
     _name = 'paquete'
     _description = 'Paquete con el que trabaja la empresa'
     
+    def create(self, cr, uid, vals, context=None):
+        vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'paquete.code')        
+        return super(paquete, self).create(cr, uid, vals, context=context)
  
     def eliminarArticulos(self,cr,uid,ids,context=None):
         res = self.write(cr,uid,ids,{'articulos':[ (5, ) ]}, context=None)        
@@ -88,7 +91,7 @@ class paquete(osv.Model):
     
     _columns = {
             #Aclaración: id_paquete es un campo autonumérico. Se ha definido como char de manera temporal.
-            'name':fields.char('ID Paquete', size=64, required=True, readonly=False),
+            'name':fields.char('ID Paquete', size=8, readonly=True),
             'tarifa':fields.function(_calcular_tarifa, 
                                     type='float',
                                     method=True,

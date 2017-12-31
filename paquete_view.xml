@@ -73,9 +73,6 @@
 					<separator></separator>
 					<button name="eliminarArticulos" string="Quitar articulos"
 						type="object"></button>
-					
-						
-						
 				</form>
 			</field>
 		</record>
@@ -107,6 +104,20 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form,calendar</field>
 		</record>
+		
+				<!-- Record for your seuqence type -->
+        <record id="paqueteria_paquete_id" model="ir.sequence.type">
+            <field name="name">paqueteria_paquete_id</field>
+            <field name="code">paquete.code</field>   <!-- Unique sequence code.-->
+        </record>
+        
+   		<!-- Record for Sequence-->
+        <record id="paquete_reg_sequence" model="ir.sequence">
+            <field name="name">Paquete Unique ID</field>
+            <field name="code">paquete.code</field>  <!-- Apply the same you applied above-->
+            <field name="implementation">no_gap</field>
+        </record> 
+		
 		<menuitem id="paqueteria" name="Paqueteria Express" action="act_paquete" />
 		<menuitem name="Paquetes" id="paquetes_submenu" parent="paqueteria"
 			sequence="100" action="act_paquete" />

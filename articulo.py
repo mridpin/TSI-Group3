@@ -29,6 +29,9 @@ class articulo(osv.Model):
     _name = 'articulo'
     _description = 'Articulo de un paquete'
     
+    def create(self, cr, uid, vals, context=None):
+        vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'articulo.code')        
+        return super(articulo, self).create(cr, uid, vals, context=context)
     
     def _check_valor(self, cr, uid, ids):
         # No puede ser un valor negatico
@@ -45,7 +48,7 @@ class articulo(osv.Model):
         return True
  
     _columns = {
-            'name':fields.char('ID Articulo', size=64, required=True, readonly=False),
+            'name':fields.char('ID Articulo', size=8, readonly=True),
             'descripcion':fields.char('Descripcion', size=90, required=True, readonly=False),
             'peso':fields.float("Peso",digits=(5,2)),
             'valor':fields.float("Valor", digits=(5, 2)),

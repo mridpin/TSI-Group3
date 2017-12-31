@@ -28,8 +28,12 @@ class eventoqueja(osv.Model):
     _name = 'eventoqueja'
     _description = 'Evento de una queja'
  
+    def create(self, cr, uid, vals, context=None):
+        vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'eventoqueja.code')        
+        return super(eventoqueja, self).create(cr, uid, vals, context=context) 
+ 
     _columns = {
-            'name':fields.char('ID Evento', size=8, required=True),
+            'name':fields.char('ID Evento', size=8, readonly=True),
             'mensaje':fields.text('Mensaje'),
             'queja':fields.many2one('queja', 'ID Queja', required=True),
             'empleado':fields.many2one('empleado', 'ID Empleado', required=True),

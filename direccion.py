@@ -29,8 +29,12 @@ class direccion(osv.Model):
     _name = 'direccion'
     _description = 'Direccion de los clientes'
  
+    def create(self, cr, uid, vals, context=None):
+        vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'direccion.code')        
+        return super(direccion, self).create(cr, uid, vals, context=context)
+ 
     _columns = {
-            'name':fields.char('ID', size=64, readonly=True),
+            'name':fields.char('ID', size=8, readonly=True),
             'calle':fields.char('Calle', size=64, required=True, readonly=False),
             'codigoPostal':fields.char('Codigo Postal', size=64, required=True, readonly=False),
             'pais': fields.many2one('res.country', 'Pais'),

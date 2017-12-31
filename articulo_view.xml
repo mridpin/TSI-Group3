@@ -29,6 +29,7 @@
 				</form>
 			</field>
 		</record>
+		
 		<record model="ir.ui.view" id="view_paqueteria_articulo_tree_view">
 			<field name="name">view_paqueteria_articulo_tree</field>
 			<field name="model">articulo</field>
@@ -45,7 +46,6 @@
 			</field>
 		</record>
 
-
 		<record id="act_articulo" model="ir.actions.act_window">
 			<field name="name">Articulos</field>
 			<field name="res_model">articulo</field>
@@ -53,6 +53,19 @@
 			<field name="view_mode">tree,form</field>
 			<field name="search_view_id" ref="view_manage_articulo_search" />
 		</record>
+		
+		<!-- Record for your seuqence type -->
+        <record id="paqueteria_articulo_id" model="ir.sequence.type">
+            <field name="name">paqueteria_articulo_id</field>
+            <field name="code">articulo.code</field>   <!-- Unique sequence code.-->
+        </record>
+        
+   		<!-- Record for Sequence-->
+        <record id="articulo_reg_sequence" model="ir.sequence">
+            <field name="name">Articulo Unique ID</field>
+            <field name="code">articulo.code</field>  <!-- Apply the same you applied above-->
+            <field name="implementation">no_gap</field>
+        </record> 
 
 		<menuitem id="paqueteria" name="Paqueteria Express" action="act_articulo" />
 		<menuitem name="Articulos" id="articulos_submenu" parent="paqueteria"

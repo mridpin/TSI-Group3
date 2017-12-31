@@ -29,8 +29,12 @@ class declaracionaduana(osv.Model):
     _name = 'declaracionaduana'
     _description = 'Declaracion de aduana de un articluo'
  
+    def create(self, cr, uid, vals, context=None):
+        vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'declaracionaduana.code')        
+        return super(declaracionaduana, self).create(cr, uid, vals, context=context) 
+ 
     _columns = {
-            'name':fields.char('ID', size=64, required=True, readonly=False),
+            'name':fields.char('ID', size=8, readonly=True),
             'declaracionAduana':fields.char('Declaracion aduana', size=128, required=True, readonly=False),
             'tasaAduana':fields.integer('Tasa aduana %', required=True, size=2),
             'articulo':fields.many2one('articulo', 'Articulo'),

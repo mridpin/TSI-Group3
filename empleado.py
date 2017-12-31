@@ -30,8 +30,13 @@ class empleado(osv.Model):
     _description = 'Empleado de la empresa'
     _inherit = "persona"
     
+    def create(self, cr, uid, vals, context=None):
+        vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'persona.code') 
+        vals['idEmpleado'] = self.pool.get('ir.sequence').get(cr, uid,'empleado.code')      
+        return super(empleado, self).create(cr, uid, vals, context=context)
+        
     _columns = {
-            'idEmpleado':fields.char('ID Empleado', size=64, required=False, readonly=False),
+            'idEmpleado':fields.char('ID Empleado', size=8, readonly=True),
             'isGestorQuejas': fields.boolean('Gestiona Quejas?'),
             'isManager': fields.boolean('Es Manager?'),
             'oficina':fields.char('Oficina', size=64, required=False, readonly=False),

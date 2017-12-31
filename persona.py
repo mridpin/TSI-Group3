@@ -30,12 +30,11 @@ class persona(osv.Model):
     _description = 'Persona generica'
     
     def create(self, cr, uid, vals, context=None):
-        vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'persona.code')
-        
+        vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'persona.code')        
         return super(persona, self).create(cr, uid, vals, context=context)
  
     _columns = {
-        'name':fields.char('ID', size=64, readonly=True),
+        'name':fields.char('ID', size=8, readonly=True),
         }
     
 persona()

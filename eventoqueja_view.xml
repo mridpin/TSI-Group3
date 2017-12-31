@@ -26,6 +26,19 @@
 			</field>
 		</record>
 		
+				<!-- Record for your seuqence type -->
+        <record id="paqueteria_eventoqueja_id" model="ir.sequence.type">
+            <field name="name">paqueteria_eventoqueja_id</field>
+            <field name="code">eventoqueja.code</field>   <!-- Unique sequence code.-->
+        </record>
+        
+   		<!-- Record for Sequence-->
+        <record id="eventoqueja_reg_sequence" model="ir.sequence">
+            <field name="name">Eventoqueja Unique ID</field>
+            <field name="code">eventoqueja.code</field>  <!-- Apply the same you applied above-->
+            <field name="implementation">no_gap</field>
+        </record> 
+		
 		<record model="ir.actions.act_window" id="act_eventoqueja">
 			<field name="name">Eventos Queja</field>
 			<field name="res_model">eventoqueja</field>

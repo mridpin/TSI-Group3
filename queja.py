@@ -23,13 +23,17 @@
 from osv import osv
 from osv import fields
 
-class ClassName(osv.Model):
+class queja(osv.Model):
 
     _name = 'queja'
     _description = 'queja'
  
+    def create(self, cr, uid, vals, context=None):
+        vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'queja.code')        
+        return super(queja, self).create(cr, uid, vals, context=context)
+     
     _columns = {
-            'name':fields.char('ID Queja', size=8, required=True),
+            'name':fields.char('ID Queja', size=8, readonly=True),
             'descripcion':fields.text('Descripción'),
             'fecha':fields.date('Fecha'),
             'cliente':fields.many2one('cliente', 'Cliente', required=True),
@@ -43,4 +47,4 @@ class ClassName(osv.Model):
         }
     
     _defaults =  {'state':'iniciado', }
-ClassName()
+queja()

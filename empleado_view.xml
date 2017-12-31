@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-	<data>	
-	
-	<record model="ir.ui.view" id="view_manage_empleado_search">
+	<data>
+
+		<record model="ir.ui.view" id="view_manage_empleado_search">
 			<field name="name">view_manage_empleado_search</field>
 			<field name="model">empleado</field>
 			<field name="type">search</field>
@@ -15,7 +15,7 @@
 				</search>
 			</field>
 		</record>
-		
+
 		<record model="ir.ui.view" id="view_paqueteria_empleado_form">
 			<field name="name">view_paqueteria_empleado_form</field>
 			<field name="model">empleado</field>
@@ -26,12 +26,12 @@
 					<field name="idEmpleado" />
 					<field name="isGestorQuejas" />
 					<field name="isManager" />
-					<field name="oficina"/>				
+					<field name="oficina" />
 				</form>
 			</field>
 		</record>
-		
-		
+
+
 		<record model="ir.ui.view" id="view_paqueteria_empleado_tree_view">
 			<field name="name">view_paqueteria_empleado_tree</field>
 			<field name="model">empleado</field>
@@ -42,33 +42,84 @@
 					<field name="idEmpleado" />
 					<field name="isGestorQuejas" />
 					<field name="isManager" />
-					<field name="oficina"/>	
+					<field name="oficina" />
 				</tree>
 			</field>
 		</record>
 
+		<record model="ir.ui.view" id="view_paqueteria_empleado_kanban_view">
+			<field name="name">view_paqueteria_empleado_kanban_view</field>
+			<field name="model">empleado</field>
+			<field name="arch" type="xml">
+				<kanban>
+					<templates>
+						<field name="name" />
+						<t t-name="kanban-box">
+							<div
+								t-attf-class="oe_kanban_color oe_kanban_card oe_kanban_global_click">
+								<div class="oe_dropdown_toggle oe_dropdown_kanban">
+									<span class="oe_e">í</span>
+									<ul class="oe_dropdown_menu">
+										<t t-if="widget.view.is_action_enabled('edit')">
+											<li>
+												<a type="edit">Edit...</a>
+											</li>
+										</t>
+										<t t-if="widget.view.is_action_enabled('delete')">
+											<li>
+												<a type="delete">Delete</a>
+											</li>
+										</t>
+										<li>
+											<ul class="oe_kanban_colorpicker" data-field="color" />
+										</li>
+									</ul>
+								</div>
+								<div class="oe_kanban_content">
+									<div>
+										<b>
+											ID Empleado: <field name="name" />
+										</b>
+									</div>
+									<div>
+										Oficina: <field name="oficina" />
+									</div>
+									<div>
+										Gestor de quejas: <field name="isGestorQuejas" />
+									</div>
+									<div>
+										Manager: <field name="isManager" />
+									</div>
+									<div class="oe_clear"></div>
+								</div>
+							</div>
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
 
 		<record id="act_empleado" model="ir.actions.act_window">
 			<field name="name">Empleado</field>
 			<field name="res_model">empleado</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
+			<field name="view_mode">tree,form,kanban</field>
 			<field name="search_view_id" ref="view_manage_empleado_search" />
 		</record>
 
-				<!-- Record for your seuqence type -->
-        <record id="paqueteria_empleado_id" model="ir.sequence.type">
-            <field name="name">paqueteria_empleado_id</field>
-            <field name="code">empleado.code</field>   <!-- Unique sequence code.-->
-        </record>
-        
-   		<!-- Record for Sequence-->
-        <record id="empleado_reg_sequence" model="ir.sequence">
-            <field name="name">Empleado Unique ID</field>
-            <field name="code">empleado.code</field>  <!-- Apply the same you applied above-->
-            <field name="implementation">no_gap</field>
-        </record> 
-        
+		<!-- Record for your seuqence type -->
+		<record id="paqueteria_empleado_id" model="ir.sequence.type">
+			<field name="name">paqueteria_empleado_id</field>
+			<field name="code">empleado.code</field>   <!-- Unique sequence code. -->
+		</record>
+
+		<!-- Record for Sequence -->
+		<record id="empleado_reg_sequence" model="ir.sequence">
+			<field name="name">Empleado Unique ID</field>
+			<field name="code">empleado.code</field>  <!-- Apply the same you applied above -->
+			<field name="implementation">no_gap</field>
+		</record>
+
 		<menuitem id="paqueteria" name="Paqueteria Express" action="act_empleado" />
 		<menuitem name="Empleados" id="empleados_submenu" parent="paqueteria"
 			sequence="110" action="act_empleado" />

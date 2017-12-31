@@ -82,13 +82,6 @@ class paquete(osv.Model):
             res[paquete.id] = tarifa                
         return res
     
-    def _check_dimension (self, cr, uid, ids):
-        # No puede ser un valor negativo, ni 0
-        for paquete in self.browse(cr, uid, ids):
-            if paquete.dimension <= 0:
-                return False
-        return True
-    
     _columns = {
             #Aclaración: id_paquete es un campo autonumérico. Se ha definido como char de manera temporal.
             'name':fields.char('ID Paquete', size=8, readonly=True),
@@ -126,7 +119,8 @@ class paquete(osv.Model):
             'articulos':fields.many2many('articulo', 'paquete_articulo_rel', 'id_paquete', 'id_articulo', 'Artículos incluídos', required=True),
             'quejas':fields.many2one('queja', 'Quejas'),
         }
-    _constraints = [(_check_dimension, 'VALOR INCORRECTO, la dimensión no puede ser menor o igual a 0' , [ 'dimension' ])] 
+     
+    _sql_constraints = [('dimension_minima', 'CHECK(dimension>0)', 'VALOR INCORRECTO, la dimension no puede ser menor o igual a 0')]
     
     _defaults =  {'state':'iniciado', }
     

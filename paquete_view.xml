@@ -36,6 +36,19 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Paquetes">
+				
+				<separator string="Estado" colspan="4" />
+					<field name="state" nolabel="1" colspan="4" widget="statusbar" statusbar_visible="iniciado,aceptado,enviado,entregado,cancelado,devuelto" statusbar_colors='{"iniciado":"orange","aceptado": "blue","enviado": "blue","entregado":"green","cancelado": "red","devuelto":"red"}'/> 
+					<button name="aceptar" states="iniciado" string="Aceptar" colspan="1" icon="gtk-ok" />
+					<button name="cancelar" states="aceptado" string="Cancelar" colspan="1" />	
+					<button name="cancelar" states="enviado" string="Cancelar" colspan="1" />		
+					<button name="enviar" states="aceptado" string="Enviar" colspan="1" icon="gtk-apply" />	
+					<button name="entregar" states="enviado" string="Entregar" colspan="1" icon="gtk-apply" />	
+					<button name="devolver" states="cancelado" string="Devolver al Remitente" colspan="1" />	
+					
+					<separator></separator>
+					<separator></separator>
+					
 					<field name="name" />
 					<field name="tarifa" />
 					<field name="fechaEntrega" />
@@ -59,14 +72,7 @@
 					<separator></separator>
 					<button name="eliminarArticulos" string="Quitar articulos"
 						type="object"></button>
-					<separator string="Worfklow" colspan="4" />
-					<field name="state" widget="statusbar" statusbar_visible="iniciado,aceptado,enviado,entregado,cancelado,devuelto" statusbar_colors='{"iniciado":"orange","aceptado": "blue","enviado": "blue","cancelado": "red","devuelto":"red","entregado":"green"}'/> 
-					<button name="aceptar" states="iniciado" string="Aceptar" colspan="1" icon="gtk-ok" />
-					<button name="cancelar" states="aceptado" string="Cancelar" colspan="1" />	
-					<button name="cancelar" states="enviado" string="Cancelar" colspan="1" />		
-					<button name="enviar" states="aceptado" string="Enviar" colspan="1" icon="gtk-apply" />	
-					<button name="entregar" states="enviado" string="Entregar" colspan="1" icon="gtk-apply" />	
-					<button name="devolver" states="cancelado" string="Devolver al Remitente" colspan="1" />	
+					
 						
 						
 				</form>

@@ -57,7 +57,6 @@
 			<field name="name">1</field>
 			<field name="email">victoramartinelli@gmail.com</field>
 			<field name="telefono">954348719</field>
-			<field name="puntos">1000</field>
 			<field name="direccion_ids" eval="[(6, 0, [direccion1, ])]"></field>
 		</record>
 		
@@ -65,7 +64,6 @@
 			<field name="name">5</field>
 			<field name="email">email@gmail.com</field>
 			<field name="telefono">523234234</field>
-			<field name="puntos">20</field>
 			<field name="direccion_ids" eval="[(6, 0, [direccion2, ])]"></field>
 		</record>
 		
@@ -73,7 +71,6 @@
 			<field name="name">6</field>
 			<field name="email">correo@gmail.com</field>
 			<field name="telefono">235235</field>
-			<field name="puntos">80</field>
 			<field name="direccion_ids" eval="[(6, 0, [direccion3, ])]"></field>
 		</record>
 		

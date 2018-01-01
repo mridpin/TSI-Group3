@@ -28,12 +28,29 @@ class cliente(osv.Model):
     _name = 'cliente'
     _description = 'Cliente de un paquete'
     _inherit = "persona"
+    
+    # Funcion que se ejecuta al pulsar el boton de recalcular. 
+    # Aunque parezca que los va a poner a 0, lo que hace es llamar a la función _calcular_puntos para recalcularlos
+    def calcular_puntos_button(self, cr, uid, ids, context=None):
+        return self.write(cr, uid, ids, {'puntos':'0'})
+    
+    # Funcion que calcula los puntos de los clientes
+    def _calcular_puntos (self, cr, uid, ids, field, arg, context=None):
+        res = {}
+        for cliente in self.browse(cr, uid, ids):
+            puntos = sum([paquete.tarifa for paquete in cliente.paquetes_enviados])
+            res[cliente.id] = puntos
+        return res
  
     _columns = {
             'email':fields.char('Email', size=64, required=True, readonly=False),
             'direccion_ids':fields.many2many('direccion', 'cliente_direccion_rel', 'id_cliente', 'id_direccion', 'Direcciones'),
             'telefono':fields.char('Telefono', size=20, required=True, readonly=False),
-            'puntos':fields.integer("Puntos"),
+            'puntos':fields.function(_calcular_puntos,
+                                    type='float',
+                                    method=True,
+                                    store=True,
+                                    string='Puntos'),
             'paquetes_enviados':fields.one2many('paquete', 'remitente', 'Paquetes Enviados'),
             'paquetes_recebidos':fields.one2many('paquete', 'destinatario', 'Paquetes Recibidos'),
             'quejas':fields.one2many('queja', 'cliente', 'Quejas'),

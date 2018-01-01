@@ -24,6 +24,7 @@
 					<field name="email" />
 					<field name="telefono" />
 					<field name="puntos" />
+					<button name="calcular_puntos_button" string="Recalcular Puntos" type="object"></button>
 					<group colspan="1"></group>
 					<notebook colspan="3">
 						<page string="Direcciones">

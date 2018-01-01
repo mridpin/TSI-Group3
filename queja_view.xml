@@ -53,7 +53,7 @@
 					<field name="paquete" />
 					<field name="descripcion" />
 					<field name="start" />
-					<field name="end" />
+					<field name="end" on_change="on_change_checkDate(start,end)" />
 					<field name="eventosqueja" colspan="1" mode="tree">
 						<tree>
 							<field name="name"/>

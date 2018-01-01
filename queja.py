@@ -32,6 +32,15 @@ class queja(osv.Model):
         vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'queja.code')        
         return super(queja, self).create(cr, uid, vals, context=context)
     
+    def on_change_checkDate(self, cr, uid, vals, start,end,context=None):
+        warning={'title':'Fecha Incorrecto',
+                  'message':'La fecha final no puede ser anterior a la fecha de inicio'}
+        
+        if end < start:
+            return {'value':{'end': None }, 'warning':warning}
+        else:
+            return {}
+    
     _columns = {
             'name':fields.char('ID Queja', size=8, readonly=True),
             'descripcion':fields.text('Descripción'),

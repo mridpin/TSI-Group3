@@ -125,7 +125,7 @@
 		<record id="queja1" model="queja">
 			<field name="name">1</field>
 			<field name="descripcion">Mala atencion al cliente</field>
-			<field name="fecha">2017-12-31 12:00:00</field>
+			<field name="start">2017-12-31 12:00:00</field>
 			<field name="cliente" ref="cliente1"/>
 			<field name="paquete" ref="paquete1"/>
 			<field name="state">abierta</field>

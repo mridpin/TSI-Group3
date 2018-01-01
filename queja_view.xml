@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
+	
+	<record model="ir.ui.view" id="view_paqueteria_queja_gantt">
+			<field name="name">view_paqueteria_queja_gantt</field>
+			<field name="model">queja</field>
+			<field name="type">gantt</field>
+			<field name="arch" type="xml">
+			<gantt color="eventoqueja" date_start="fecha" date_stop="end" string="Eventos Queja">		
+					<level object="eventoqueja.queja" link="queja" domain="[]">
+						<field name="name"/>
+					</level>		
+			</gantt>
+			</field>
+	</record>
+	
+	
 		<record model="ir.ui.view" id="view_paqueteria_queja_tree_view">
 			<field name="name">view_paqueteria_queja_tree_view</field>
 			<field name="model">queja</field>
@@ -8,7 +23,8 @@
 			<field name="arch" type="xml">
 				<tree string="Quejas">
 					<field name="name" />
-					<field name="fecha" />
+					<field name="start" />
+					<field name="end" />
 					<field name="cliente" />
 					<field name="paquete" />
 					<field name="state"/>
@@ -36,7 +52,8 @@
 					<field name="cliente" />
 					<field name="paquete" />
 					<field name="descripcion" />
-					<field name="fecha" />
+					<field name="start" />
+					<field name="end" />
 					<field name="eventosqueja" colspan="1" mode="tree">
 						<tree>
 							<field name="name"/>
@@ -52,7 +69,7 @@
 			<field name="name">Quejas</field>
 			<field name="res_model">queja</field>
 			<field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
+			<field name="view_mode">tree,form,gantt</field>
 		</record>
 		
 				<!-- Record for your seuqence type -->

@@ -105,7 +105,7 @@
 			<field name="destinatario" ref="cliente2"/>
 			<field name="isUrgente">True</field>
 			<field name="dimension">20</field>
-			<field name="state">aceptado</field>
+			<field name="state">devuelto</field>
 			<field name="articulos" eval="[(6, 0, [articulo1, ])]"></field>
 		</record>
 		
@@ -126,9 +126,10 @@
 			<field name="name">1</field>
 			<field name="descripcion">Mala atencion al cliente</field>
 			<field name="start">2017-12-31 12:00:00</field>
+			<field name="end">2018-01-03 12:00:00</field>
 			<field name="cliente" ref="cliente1"/>
 			<field name="paquete" ref="paquete1"/>
-			<field name="state">abierta</field>
+			<field name="state">resuelta</field>
 		</record>
 		
 		<record id="eventoqueja1" model="eventoqueja">

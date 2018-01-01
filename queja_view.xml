@@ -7,7 +7,7 @@
 			<field name="model">queja</field>
 			<field name="type">gantt</field>
 			<field name="arch" type="xml">
-			<gantt color="eventoqueja" date_start="fecha" date_stop="end" string="Eventos Queja">		
+			<gantt color="eventoqueja" date_start="start" date_stop="end" string="Eventos Queja">		
 					<level object="eventoqueja.queja" link="queja" domain="[]">
 						<field name="name"/>
 					</level>		

@@ -30,6 +30,17 @@ class empleado(osv.Model):
     _description = 'Empleado de la empresa'
     _inherit = "persona"
     
+    def name_get(self, cr, uid, ids, context=None):
+        if context is None:
+            context = {}
+        if isinstance(ids, (int, long)):
+            ids = [ids]    
+        res = []
+        for empleado in self.browse(cr, uid, ids, context=context):
+            name = empleado.idEmpleado
+            res.append((empleado.id, name))    
+        return res
+    
     def create(self, cr, uid, vals, context=None):
         vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'persona.code') 
         vals['idEmpleado'] = self.pool.get('ir.sequence').get(cr, uid,'empleado.code')      

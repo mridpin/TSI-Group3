@@ -22,7 +22,6 @@
 
 from osv import osv
 from osv import fields
-from datetime import date
 
 class queja(osv.Model):
 

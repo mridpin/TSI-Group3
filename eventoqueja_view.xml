@@ -19,7 +19,7 @@
 			<field name="arch" type="xml">
 				<form string="Eventos Queja">
 					<field name="name" />
-					<field name="empleado" />
+					<field name="empleado" on_change="on_change_isQueja(empleado)" />
 					<field name="queja" />
 					<field name="mensaje" />
 				</form>

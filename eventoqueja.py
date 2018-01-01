@@ -22,6 +22,7 @@
 
 from osv import osv
 from osv import fields
+from empleado import empleado
 
 class eventoqueja(osv.Model):
 
@@ -31,6 +32,18 @@ class eventoqueja(osv.Model):
     def create(self, cr, uid, vals, context=None):
         vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'eventoqueja.code')        
         return super(eventoqueja, self).create(cr, uid, vals, context=context) 
+    
+    def on_change_isQueja(self,cr,uid,ids,emp,context=None):
+        warning={'title':'Empleado Incorrecto',
+                  'message':'El empleado debe ser gestor de quejas'}
+        
+        empleado = self.pool.get('empleado')
+        empleado_data = empleado.browse(cr, uid, emp, context=context)
+        
+        if empleado_data.isGestorQuejas!=True:
+            return {'value':{'empleado': False }, 'warning':warning}
+        else:
+            return {}
  
     _columns = {
             'name':fields.char('ID Evento', size=8, readonly=True),

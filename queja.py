@@ -32,6 +32,7 @@ class queja(osv.Model):
         vals['name'] = self.pool.get('ir.sequence').get(cr, uid,'queja.code')        
         return super(queja, self).create(cr, uid, vals, context=context)
      
+     
     _columns = {
             'name':fields.char('ID Queja', size=8, readonly=True),
             'descripcion':fields.text('Descripción'),

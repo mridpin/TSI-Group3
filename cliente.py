@@ -39,7 +39,7 @@ class cliente(osv.Model):
         res = {}
         for cliente in self.browse(cr, uid, ids):
             puntos = sum([paquete.tarifa for paquete in cliente.paquetes_enviados])
-            res[cliente.id] = puntos
+            res[cliente.id] = puntos / 10
         return res
  
     _columns = {

@@ -40,6 +40,7 @@
 					<field name="eventosqueja" colspan="1" mode="tree">
 						<tree>
 							<field name="name"/>
+							<field name="empleado" />
 						</tree>
 					</field>
 					

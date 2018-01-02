@@ -11,7 +11,15 @@
 					<field name="name" />
 					<field name="declaracionAduana" />
 					<field name="tasaAduana" />
-					<field name="articulo" />
+					<newline></newline>
+					<field name="articulo" colspan="4" mode="tree">
+						<tree>
+							<field name="name" />
+							<field name="descripcion" />
+							<field name="peso" />
+							<field name="valor" />
+						</tree>
+					</field>
 				</form>
 			</field>
 		</record>
@@ -26,7 +34,7 @@
 					<field name="name" />
 					<field name="declaracionAduana" />
 					<field name="tasaAduana" />
-					<field name="articulo" />
+					<field name="articulo"/>
 				</tree>
 			</field>
 		</record>

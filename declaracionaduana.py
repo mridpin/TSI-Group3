@@ -34,9 +34,9 @@ class declaracionaduana(osv.Model):
         return super(declaracionaduana, self).create(cr, uid, vals, context=context) 
  
     _columns = {
-            'name':fields.char('ID', size=8, readonly=True),
+            'name':fields.many2one('res.country', 'País'),
             'declaracionAduana':fields.char('Declaracion aduana', size=128, required=True, readonly=False),
             'tasaAduana':fields.integer('Tasa aduana %', required=True, size=2),
-            'articulo':fields.many2one('articulo', 'Articulo'),
+            'articulo':fields.many2many('articulo', 'articulo_declaracionaduana_rel', 'id_declaracionaduana', 'id_articulo', 'Artículos afectados'),
         }
 declaracionaduana()

@@ -54,7 +54,7 @@ class articulo(osv.Model):
             'valor':fields.float("Valor", digits=(5, 2)),
             'isComercial': fields.boolean('Es comercial?'),
             'paquetes':fields.many2many('paquete', 'paquete_articulo_rel', 'id_articulo', 'id_paquete','Artículos incluídos', required=True),
-            'declaracionAduana':fields.many2one('declaracionaduana', 'Declaracion Aduana'),
+            'declaracionAduana':fields.many2many('declaracionaduana', 'articulo_declaracionaduana_rel', 'id_articulo', 'id_declaracionaduana', 'Declaraciones de Aduana'), 
         }
     
     _constraints = [(_check_valor, 'VALOR INCORRECTO, el valor no puede ser menor o igual a 0' , [ 'valor' ]),

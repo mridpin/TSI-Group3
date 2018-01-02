@@ -25,7 +25,13 @@
 					<field name="peso" />
 					<field name="valor" />
 					<field name="isComercial" />
-					<field name="declaracionAduana" />
+					<field name="declaracionAduana" colspan="2" mode="tree">
+						<tree>
+							<field name="name" />
+							<field name="tasaAduana" />
+							<field name="declaracionAduana" />
+						</tree>
+					</field>
 				</form>
 			</field>
 		</record>

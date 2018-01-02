@@ -44,7 +44,7 @@ class cliente(osv.Model):
  
     _columns = {
             'email':fields.char('Email', size=64, required=True, readonly=False),
-            'direccion_ids':fields.many2many('direccion', 'cliente_direccion_rel', 'id_cliente', 'id_direccion', 'Direcciones'),
+            'direccion_ids': fields.one2many('direccion','cliente_id','Direcciones'),
             'telefono':fields.char('Telefono', size=20, required=True, readonly=False),
             'puntos':fields.function(_calcular_puntos,
                                     type='float',

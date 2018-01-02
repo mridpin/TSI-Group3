@@ -31,18 +31,11 @@
 			<field name="isComercial">True</field>
 		</record>
 		
-		<record id="declaracionAduana1" model="declaracionaduana">
-			<field name="name">1</field>
-			<field name="declaracionAduana">Dulces Caseros</field>
-			<field name="tasaAduana">20</field>
-		</record>
-		
 		<record id="articulo2" model="articulo">
 			<field name="name">2</field>
 			<field name="descripcion">Dulces Caseros</field>
 			<field name="peso">0.5</field>
 			<field name="valor">5</field>
-			<field name="declaracionAduana" ref="declaracionAduana1"/>
 		</record>
 		
 		<record id="articulo3" model="articulo">

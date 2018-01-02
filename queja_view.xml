@@ -105,7 +105,7 @@
 
 		<menuitem id="paqueteria" name="Paqueteria Express"	action="act_queja" />
 		<menuitem name="Quejas" id="quejas_submenu" parent="paqueteria"
-			sequence="100" action="act_queja" />
+			sequence="140" action="act_queja" />
 		<menuitem name="Ver Quejas" id="ver_quejas_submenu"
 			parent="quejas_submenu" sequence="110" action="act_queja" />
 	</data>

@@ -47,7 +47,6 @@
 					<field name="peso" />
 					<field name="valor" />
 					<field name="isComercial" />
-					<field name="declaracionAduana" />
 				</tree>
 			</field>
 		</record>

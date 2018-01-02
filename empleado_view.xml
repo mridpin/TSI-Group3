@@ -122,7 +122,7 @@
 
 		<menuitem id="paqueteria" name="Paqueteria Express" action="act_empleado" />
 		<menuitem name="Empleados" id="empleados_submenu" parent="paqueteria"
-			sequence="110" action="act_empleado" />
+			sequence="130" action="act_empleado" />
 		<menuitem name="Ver Empleados" id="ver_empleados_submenu"
 			parent="empleados_submenu" sequence="110" action="act_empleado" />
 	</data>

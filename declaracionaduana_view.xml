@@ -34,7 +34,7 @@
 					<field name="name" />
 					<field name="declaracionAduana" />
 					<field name="tasaAduana" />
-					<field name="articulo"/>
+					<field name="articulo" string="ID Articulos Afectados" />
 				</tree>
 			</field>
 		</record>
@@ -62,7 +62,7 @@
 
 		<menuitem id="paqueteria" name="Paqueteria Express" action="act_declaracionaduana" />
 		<menuitem name="Declaraciones" id="declaraciones_submenu"
-			parent="paqueteria" sequence="110" action="act_declaracionaduana" />
+			parent="paqueteria" sequence="160" action="act_declaracionaduana" />
 		<menuitem name="Ver Declaraciones" id="ver_declaraciones_submenu"
 			parent="declaraciones_submenu" sequence="110" action="act_declaracionaduana" />
 

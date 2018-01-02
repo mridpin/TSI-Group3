@@ -103,7 +103,7 @@
 
 		<menuitem id="paqueteria" name="Paqueteria Express" action="act_cliente" />
 		<menuitem name="Clientes" id="clientes_submenu" parent="paqueteria"
-			sequence="110" action="act_cliente" />
+			sequence="120" action="act_cliente" />
 		<menuitem name="Ver Clientes" id="ver_clientes_submenu"
 			parent="clientes_submenu" sequence="110" action="act_cliente" />
 	</data>

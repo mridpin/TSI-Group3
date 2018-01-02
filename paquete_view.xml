@@ -109,16 +109,14 @@
 			<field name="view_mode">tree,form,calendar</field>
 		</record>
 		
-				<!-- Record for your seuqence type -->
         <record id="paqueteria_paquete_id" model="ir.sequence.type">
             <field name="name">paqueteria_paquete_id</field>
-            <field name="code">paquete.code</field>   <!-- Unique sequence code.-->
+            <field name="code">paquete.code</field> 
         </record>
         
-   		<!-- Record for Sequence-->
         <record id="paquete_reg_sequence" model="ir.sequence">
             <field name="name">Paquete Unique ID</field>
-            <field name="code">paquete.code</field>  <!-- Apply the same you applied above-->
+            <field name="code">paquete.code</field> 
             <field name="implementation">no_gap</field>
         </record> 
 		

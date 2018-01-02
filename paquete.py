@@ -92,7 +92,6 @@ class paquete(osv.Model):
         return res
     
     _columns = {
-            # Aclaración: id_paquete es un campo autonumérico. Se ha definido como char de manera temporal.
             'name':fields.char('ID Paquete', size=8, readonly=True),
             'tarifa':fields.function(_calcular_tarifa,
                                     type='float',

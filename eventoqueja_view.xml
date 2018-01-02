@@ -26,16 +26,14 @@
 			</field>
 		</record>
 		
-				<!-- Record for your seuqence type -->
         <record id="paqueteria_eventoqueja_id" model="ir.sequence.type">
             <field name="name">paqueteria_eventoqueja_id</field>
-            <field name="code">eventoqueja.code</field>   <!-- Unique sequence code.-->
+            <field name="code">eventoqueja.code</field> 
         </record>
         
-   		<!-- Record for Sequence-->
         <record id="eventoqueja_reg_sequence" model="ir.sequence">
             <field name="name">Eventoqueja Unique ID</field>
-            <field name="code">eventoqueja.code</field>  <!-- Apply the same you applied above-->
+            <field name="code">eventoqueja.code</field> 
             <field name="implementation">no_gap</field>
         </record> 
 		

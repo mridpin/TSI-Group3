@@ -3,16 +3,14 @@
 <openerp>
     <data>
     
-    <!-- Record for your seuqence type -->
         <record id="paqueteria_persona_id" model="ir.sequence.type">
             <field name="name">paqueteria_persona_id</field>
             <field name="code">persona.code</field>   <!-- Unique sequence code.-->
         </record>
         
-    <!-- Record for Sequence-->
         <record id="student_reg_sequence" model="ir.sequence">
             <field name="name">Persona Unique ID</field>
-            <field name="code">persona.code</field>  <!-- Apply the same you applied above-->
+            <field name="code">persona.code</field>
             <field name="implementation">no_gap</field>
         </record>
     

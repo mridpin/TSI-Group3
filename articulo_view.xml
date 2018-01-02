@@ -59,16 +59,14 @@
 			<field name="search_view_id" ref="view_manage_articulo_search" />
 		</record>
 		
-		<!-- Record for your seuqence type -->
         <record id="paqueteria_articulo_id" model="ir.sequence.type">
             <field name="name">paqueteria_articulo_id</field>
             <field name="code">articulo.code</field>   <!-- Unique sequence code.-->
         </record>
         
-   		<!-- Record for Sequence-->
         <record id="articulo_reg_sequence" model="ir.sequence">
             <field name="name">Articulo Unique ID</field>
-            <field name="code">articulo.code</field>  <!-- Apply the same you applied above-->
+            <field name="code">articulo.code</field> 
             <field name="implementation">no_gap</field>
         </record> 
 

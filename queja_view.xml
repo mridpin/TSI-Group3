@@ -90,16 +90,14 @@
 			<field name="view_mode">tree,form,gantt</field>
 		</record>
 		
-				<!-- Record for your seuqence type -->
         <record id="paqueteria_queja_id" model="ir.sequence.type">
             <field name="name">paqueteria_queja_id</field>
-            <field name="code">queja.code</field>   <!-- Unique sequence code.-->
+            <field name="code">queja.code</field> 
         </record>
         
-   		<!-- Record for Sequence-->
         <record id="queja_reg_sequence" model="ir.sequence">
             <field name="name">Queja Unique ID</field>
-            <field name="code">queja.code</field>  <!-- Apply the same you applied above-->
+            <field name="code">queja.code</field> 
             <field name="implementation">no_gap</field>
         </record> 
 

@@ -107,13 +107,11 @@
 			<field name="search_view_id" ref="view_manage_empleado_search" />
 		</record>
 
-		<!-- Record for your seuqence type -->
 		<record id="paqueteria_empleado_id" model="ir.sequence.type">
 			<field name="name">paqueteria_empleado_id</field>
 			<field name="code">empleado.code</field>   <!-- Unique sequence code. -->
 		</record>
 
-		<!-- Record for Sequence -->
 		<record id="empleado_reg_sequence" model="ir.sequence">
 			<field name="name">Empleado Unique ID</field>
 			<field name="code">empleado.code</field>  <!-- Apply the same you applied above -->

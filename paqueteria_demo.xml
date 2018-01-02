@@ -20,7 +20,7 @@
 			<field name="name">3</field>
 			<field name="calle">Heritage Oaks Drive</field>
 			<field name="codigoPostal">94507</field>
-			 <field name="pais" ref="base.us"/>
+			 <field name="pais" ref="base.ad"/>
 		</record>		
 		
 		<record id="articulo1" model="articulo">
@@ -31,11 +31,18 @@
 			<field name="isComercial">True</field>
 		</record>
 		
+		<record id="declaracionaduana1" model="declaracionaduana">
+			<field name="name" ref="base.ad"/>
+			<field name="declaracionAduana">Dulces Caseros</field>
+			<field name="tasaAduana">20</field>
+		</record>
+		
 		<record id="articulo2" model="articulo">
 			<field name="name">2</field>
 			<field name="descripcion">Dulces Caseros</field>
 			<field name="peso">0.5</field>
 			<field name="valor">5</field>
+			<field name="declaracionAduana" eval="[(6, 0, [declaracionaduana1, ])]" />
 		</record>
 		
 		<record id="articulo3" model="articulo">

@@ -25,6 +25,10 @@
 					<filter string="Paquetes Asegurados" domain="[('isAsegurado','=',True)]" />
 					<filter string="Paquetes No Asegurados" domain="[('isAsegurado','=',False)]" />
 					<filter string="Paquetes Administracion Publica" domain="[('isAdminPublica','=',True)]" />
+					<group expand="0" string="Agrupar por…">
+					<filter name="group_by_State" string="Estados"
+							context="{'group_by':'state'}" />
+					</group>
 				</search>
 			</field>
 		</record>

@@ -15,6 +15,24 @@
 			</field>
 	</record>
 	
+	<record model="ir.ui.view" id="view_manage_queja_search">
+			<field name="name">view_manage_queja_search</field>
+			<field name="model">queja</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Queja">
+					<group expand="0" string="Agrupar por…">
+					<filter name="group_by_State" string="Estados"
+							context="{'group_by':'state'}" />
+					<filter name="group_by_client" string="Cliente"
+							context="{'group_by':'cliente'}" />
+					<filter name="group_by_month" string="Mes"
+							context="{'group_by':'start'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+	
 	
 		<record model="ir.ui.view" id="view_paqueteria_queja_tree_view">
 			<field name="name">view_paqueteria_queja_tree_view</field>
